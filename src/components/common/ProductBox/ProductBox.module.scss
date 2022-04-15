@@ -75,4 +75,29 @@
     justify-content: space-between;
     align-items: center;
   }
+
+  .outlines {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .pricesContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap-reverse;
+    gap: 5px;
+
+    .oldPrice {
+      text-decoration: line-through;
+      font-size: 13px;
+      color: #a5a5a5;
+    }
+
+    .noOldPrice {
+      display: none;
+    }
+  }
 }
