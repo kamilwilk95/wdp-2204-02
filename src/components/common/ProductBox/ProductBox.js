@@ -18,9 +18,9 @@ const ProductBox = ({ id, name, price, promo, stars, oldPrice, isFavorite }) => 
 
   const dispatch = useDispatch();
 
-  const favoriteClick = (e) => {
-    e.preventDefault();
-    dispatch (toggleCardFavorite(id));
+  const favoriteClick = (event) => {
+    event.preventDefault();
+    dispatch(toggleCardFavorite(id));
   };
 
   return (
