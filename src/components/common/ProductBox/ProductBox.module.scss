@@ -23,7 +23,7 @@
       width: 100%;
       height: 100%;
     }
-    
+
     .sale {
       position: absolute;
       top: -30px;
@@ -52,7 +52,7 @@
     }
 
   }
-  .photo:hover ~.actions div:last-child{
+  .photo:hover ~.actions .pricesContainer :nth-last-of-type(1){
     background-color: $primary;
   }
 
