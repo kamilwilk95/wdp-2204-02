@@ -23,7 +23,7 @@
       width: 100%;
       height: 100%;
     }
-    
+
     .sale {
       position: absolute;
       top: -30px;
@@ -36,6 +36,12 @@
     }
 
     .buttons {
+      display: none;
+    }
+  }
+
+  .photo:hover {
+    .buttons {
       display: flex;
       justify-content: space-between;
       position: absolute;
@@ -44,6 +50,10 @@
       transform: translateX(-50%);
       width: 100%;
     }
+
+  }
+  .photo:hover ~.actions .pricesContainer :nth-last-of-type(1){
+    background-color: $primary;
   }
 
   .content {
@@ -113,3 +123,5 @@
     }
   }
 }
+
+
