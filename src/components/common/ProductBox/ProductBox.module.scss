@@ -132,6 +132,10 @@
     background-color: $primary;
     color: #ffffff;
   }
+
+  .buttonCompare:hover, .comparing {
+    border: 1px solid $primary;
+    background-color: $primary;
+    color: #ffffff;
+  }
 }
-
-

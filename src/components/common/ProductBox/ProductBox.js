@@ -65,7 +65,7 @@ const ProductBox = ({ id, name, price, promo, stars, oldPrice, isFavorite, compa
           <Button variant='outline' onClick={favoriteClick} className={clsx(styles.buttonFavorite, isFavorite && styles.isFavorite)}>
             <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
           </Button>
-          <Button variant='outline' onClick={toggleCompare} className={clsx(comparing && styles.comparing)}>
+          <Button variant='outline' onClick={toggleCompare} className={clsx(styles.buttonCompare, comparing && styles.comparing)}>
             <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
           </Button>
         </div>
