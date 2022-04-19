@@ -13,18 +13,19 @@ const createActionName = name => `app/${reducerName}/${name}`;
 
 /* action types */
 const TOGGLE_COMPARING = createActionName('TOGGLE_COMPARING');
-
-// const ADD_TO_COMPARING = createActionName('ADD_TO_COMPARING');
-// const REMOVE_FROM_COMPARING = createActionName('REMOVE_FROM_COMPARING');
+const TOGGLE_CARD_FAVORITE = createActionName('TOGGLE_CARD_FAVORITE');
 
 /* action creators */
 export const toggleComparing = payload => ({ type: TOGGLE_COMPARING, payload });
+export const toggleCardFavorite = payload => ({type: TOGGLE_CARD_FAVORITE, payload});
 
 /* reducer */
 export default function reducer(statePart = [], action = {}) {
   switch (action.type) {
     case TOGGLE_COMPARING:
       return statePart.map(product => (product.id === action.payload) ? { ...product, comparing: !product.comparing } : product );
+    case TOGGLE_CARD_FAVORITE:
+      return statePart.map(product => (product.id === action.payload) ? { ...product, isFavorite: !product.isFavorite } : product);
     default:
       return statePart;
   }

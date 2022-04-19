@@ -11,14 +11,18 @@ import {
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
 
-import { useDispatch } from 'react-redux';
-import { toggleComparing } from '../../../redux/productsRedux';
 import clsx from 'clsx';
+import { useDispatch } from 'react-redux';
+import { toggleCardFavorite, toggleComparing } from '../../../redux/productsRedux';
 
-
-const ProductBox = ({ id, name, price, promo, stars, oldPrice, comparing }) => {
+const ProductBox = ({ id, name, price, promo, stars, oldPrice, isFavorite, comparing }) => {
 
   const dispatch = useDispatch();
+
+  const favoriteClick = (event) => {
+    event.preventDefault();
+    dispatch(toggleCardFavorite(id));
+  };
 
   const toggleCompare = e => {
     e.preventDefault();
@@ -58,7 +62,7 @@ const ProductBox = ({ id, name, price, promo, stars, oldPrice, comparing }) => {
       <div className={styles.line}></div>
       <div className={styles.actions}>
         <div className={styles.outlines}>
-          <Button variant='outline'>
+          <Button variant='outline' onClick={favoriteClick} className={clsx(styles.buttonFavorite, isFavorite && styles.isFavorite)}>
             <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
           </Button>
           <Button variant='outline' onClick={toggleCompare} className={clsx(comparing && styles.comparing)}>
@@ -89,6 +93,7 @@ ProductBox.propTypes = {
   stars: PropTypes.number,
   oldPrice: PropTypes.number,
   comparing: PropTypes.bool,
+  isFavorite: PropTypes.bool,
 };
 
 export default ProductBox;
