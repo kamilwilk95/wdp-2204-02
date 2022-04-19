@@ -1,19 +1,19 @@
 @import "../../../styles/settings.scss";
 
 .root {
-  border: 1px solid $form-border-color;
+  border: 1px solid $search-border-color;
   display: inline-flex;
   height: 45px;
-  color: $text-color;
+  color: $search-text;
 
   .category {
-    border-right: 1px solid $form-border-color;
+    border-right: 1px solid $search-border-color;
     display: flex;
     align-items: center;
     position: relative;
 
     .icon:first-child {
-      color: $primary;
+      color: $search-hover;
       position: absolute;
       left: 10px;
       z-index: 0;
@@ -58,7 +58,7 @@
       margin: 0;
       width: 100%;
       text-align: center;
-      background-color: #fff;
+      background-color: $search-bg;
     }
 
     &:hover ul li .dropdown {
@@ -66,13 +66,13 @@
     }
 
     .dropdown li:hover .option {
-    background: $primary;
-    color: #fff;
+    background: $search-hover;
+    color: $search-bg;
     }
 
     .categorySelect:hover .dropdown li:hover .option {
-      background: $primary;
-      color: #fff;
+      background: $search-hover;
+      color: $search-bg;
     }
   }
 
@@ -88,7 +88,7 @@
       outline: none;
 
       &::placeholder {
-        color: $text-color;
+        color: $search-text;
       }
     }
 
