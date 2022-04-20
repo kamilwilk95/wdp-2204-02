@@ -1,8 +1,8 @@
 @import "../../../styles/settings.scss";
 
 .root {
-  background-color: $bbox-bg;
-  border: 1px solid $bbox-border;
+  background-color: $productBox-bg;
+  border: 1px solid $productBox-border;
   margin-bottom: 2rem;
 
   .photo {
@@ -29,9 +29,9 @@
       top: -30px;
       left: 50%;
       transform: translateX(-50%);
-      background-color: $bbox-sale-box;
+      background-color: $productBox-sale-box;
       border-radius: 50%;
-      color: $bbox-bg;
+      color: $productBox-bg;
       padding: 30px 15px 5px 15px;
     }
 
@@ -53,7 +53,7 @@
 
   }
   .photo:hover ~.actions .pricesContainer :nth-last-of-type(1){
-    background-color: $bbox-hover;
+    background-color: $productBox-hover;
   }
 
   .content {
@@ -61,7 +61,7 @@
     padding: 20px;
 
     h5 {
-      color: $bbox-hover;
+      color: $productBox-hover;
       font-size: 16px;
       line-height: 24px;
       letter-spacing: 1px;
@@ -70,7 +70,7 @@
     .stars {
       a {
         text-decoration: none;
-        color: $bbox-stars;
+        color: $productBox-stars;
       }
     }
   }
@@ -86,7 +86,7 @@
       bottom: -1px;
       left: 50%;
       width: 30px;
-      border-bottom: 4px solid $bbox-hover;
+      border-bottom: 4px solid $productBox-hover;
       transform: translateX(-50%);
     }
   }
@@ -115,7 +115,7 @@
     .oldPrice {
       text-decoration: line-through;
       font-size: 13px;
-      color: $bbox-old-price;
+      color: $productBox-old-price;
     }
 
     .noOldPrice {
@@ -124,8 +124,8 @@
   }
 
   .outlines .buttonFavorite:hover, .isFavorite {
-    border: 1px solid $bbox-hover;
-    background-color: $bbox-hover;
-    color: $bbox-bg;
+    border: 1px solid $productBox-hover;
+    background-color: $productBox-hover;
+    color: $productBox-bg;
   }
 }

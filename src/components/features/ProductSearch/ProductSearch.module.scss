@@ -1,13 +1,13 @@
 @import "../../../styles/settings.scss";
 
 .root {
-  border: 1px solid $search-border-color;
+  border: 1px solid $search-border;
   display: inline-flex;
   height: 45px;
   color: $search-text;
 
   .category {
-    border-right: 1px solid $search-border-color;
+    border-right: 1px solid $search-border;
     display: flex;
     align-items: center;
     position: relative;
