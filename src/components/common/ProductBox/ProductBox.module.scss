@@ -77,7 +77,7 @@
 
   .line {
     margin: 0 10px;
-    border-bottom: 1px solid #2a2a2a;
+    border-bottom: 1px solid $productBox-stars;
     position: relative;
 
     &::before {
@@ -106,7 +106,7 @@
   }
 
   .comparing {
-    background-color: $primary;
+    background-color: $productBox-hover;
   }
 
   .pricesContainer {
@@ -134,8 +134,8 @@
   }
 
   .buttonCompare:hover, .comparing {
-    border: 1px solid $primary;
-    background-color: $primary;
+    border: 1px solid $productBox-hover;
+    background-color: $productBox-hover;
     color: #ffffff;
   }
 }

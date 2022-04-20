@@ -1,10 +1,10 @@
 @import "../../../styles/settings.scss";
 
 .compareSticky {
-  background-color: #f4f5f7;
+  background-color: $compare-sticky-bg;
   position: sticky;
   bottom: 0;
-  box-shadow:inset 0px 10px $primary;
+  box-shadow:inset 0px 10px $compare-sticky-border;
 
   display: flex;
   justify-content: center;

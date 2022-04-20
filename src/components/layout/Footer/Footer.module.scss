@@ -80,3 +80,43 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .bottomRow {
+    display: flex;
+
+    .placeholderElement {
+      flex: 100%;
+      text-align: center;
+      color: $footer-secondary-text;
+      display: none;
+    }
+
+    .copyright {
+      text-align: left !important;
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .column {
+    flex: 50%;
+    box-sizing: border-box;
+
+    .cardsImage {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .column {
+    flex: 100%;
+    box-sizing: border-box;
+    text-align: center;
+
+    .cardsImage {
+      width: 50%;
+    }
+  }
+}
