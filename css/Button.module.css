@@ -1,26 +1,19 @@
-@import "../../../styles/settings.scss";
-
-// .root {
-// }
-
-.main {
+.main, .small {
   background-color: #2a2a2a;
   color: #ffffff;
   font-size: 16px;
   line-height: 24px;
   font-weight: 600;
   padding: 10px 30px;
+}
 
-  &:not(.noHover):hover {
-    color: #ffffff !important;
-    background-color: $primary;
-    text-decoration: none;
-    @include hover-animation-background;
-  }
+.main:not(.noHover):hover, .small:not(.noHover):hover {
+  color: #ffffff !important;
+  background-color: #d58e32;
+  text-decoration: none;
 }
 
 .small {
-  @extend .main;
   font-size: 13px;
   line-height: 24px;
   padding: 5px 10px;
@@ -34,9 +27,9 @@
   color: #2a2a2a;
   font-size: 13px;
   line-height: 22px;
+}
 
-  &:not(.noHover):hover {
-    background-color: #2a2a2a;
-    color: #ffffff;
-  }
+.outline:not(.noHover):hover {
+  background-color: #2a2a2a;
+  color: #ffffff;
 }

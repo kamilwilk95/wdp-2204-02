@@ -64,15 +64,17 @@
   &:hover{
     .iconWrapper {
       color: #ffffff;
-
+      @include hover-animation-text;
       &::after {
         background-color: $primary;
         border-color: $primary;
+        @include hover-animation-background;
       }
     }
 
     .content {
       color: $primary;
+      @include hover-animation-text;
     }
   }
 }

@@ -1,0 +1,40 @@
+.root {
+  background-color: #434343;
+}
+
+.root ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.root ul li {
+  display: inline-block;
+  line-height: 55px;
+}
+
+.root ul li a {
+  color: #ffffff;
+  font-size: 13px;
+}
+
+.root ul li a:hover {
+  color: #d58e32;
+  text-decoration: none;
+}
+
+.root .topOptions ul li {
+  margin-right: 1.5rem;
+}
+
+.root .topOptions ul li .icon {
+  margin-left: 5px;
+}
+
+.root .topMenu ul li {
+  margin-left: 1.5rem;
+}
+
+.root .topMenu ul li .icon {
+  margin-right: 5px;
+}

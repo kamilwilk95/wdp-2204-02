@@ -68,11 +68,13 @@
     .dropdown li:hover .option {
     background: $primary;
     color: #fff;
+    @include hover-animation-text;
     }
 
     .categorySelect:hover .dropdown li:hover .option {
       background: $primary;
       color: #fff;
+      @include hover-animation-background;
     }
   }
 

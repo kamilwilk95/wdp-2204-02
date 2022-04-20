@@ -24,6 +24,7 @@
 
             &:hover {
               color: #ffffff;
+              @include hover-animation-text;
             }
           }
         }
@@ -73,6 +74,7 @@
 
             &:hover {
               color: $primary;
+              @include hover-animation-text;
             }
           }
         }

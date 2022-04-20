@@ -127,6 +127,7 @@
     border: 1px solid $primary;
     background-color: $primary;
     color: #ffffff;
+    @include hover-animation-background;
   }
 
   .outline{
@@ -135,10 +136,11 @@
     color: #ffffff;
   }
   
-  .outlines .isComparison:hover, .isComparison{
+  .outlines .buttonComparison:hover, .isComparison{
     border: 1px solid $form-border-color;
     background-color: $form-border-color;
     color: #ffffff;
+    @include hover-animation-background;
   }
 }
 

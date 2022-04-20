@@ -1,0 +1,95 @@
+.root .panelBar {
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.root .panelBar :global(.row) > * {
+  border-bottom: 4px solid #e2e2e2;
+}
+
+.root .panelBar .heading {
+  position: relative;
+}
+
+.root .panelBar .heading h3 {
+  color: #d58e32;
+  text-transform: uppercase;
+  font-size: 20px;
+  line-height: 38px;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.root .panelBar .heading::before {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 45px;
+  border-bottom: 4px solid #d58e32;
+}
+
+.root .panelBar .menu {
+  text-align: center;
+}
+
+.root .panelBar .menu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.root .panelBar .menu ul li {
+  display: inline-block;
+  margin: 0 0.5rem;
+  font-weight: 600;
+}
+
+.root .panelBar .menu ul li a {
+  color: #2a2a2a;
+  position: relative;
+  text-decoration: none;
+  font-size: 18px;
+  display: block;
+}
+
+.root .panelBar .menu ul li a.active::before, .root .panelBar .menu ul li a:hover::before {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  border-bottom: 4px solid #d58e32;
+}
+
+.root .panelBar .dots {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.root .panelBar .dots ul {
+  margin: 0;
+  padding: 0 0 0 1rem;
+  list-style: none;
+  background-color: #ffffff;
+  transform: translateY(15px);
+}
+
+.root .panelBar .dots ul li {
+  display: inline-block;
+  margin-left: 0.5rem;
+}
+
+.root .panelBar .dots ul li a {
+  display: block;
+  width: 13px;
+  height: 13px;
+  border-radius: 6px;
+  background-color: #e1e1e1;
+  font-size: 0;
+}
+
+.root .panelBar .dots ul li a.active, .root .panelBar .dots ul li a:hover {
+  background-color: #d58e32;
+}

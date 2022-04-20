@@ -41,6 +41,7 @@
         background-color: $primary;
         color: #ffffff;
         border-color: $primary;
+        @include hover-animation-background;
       }
 
       &.active {
