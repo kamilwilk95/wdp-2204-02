@@ -1,0 +1,42 @@
+@import "../../../styles/settings.scss";
+
+.comparedItem {
+  width: 10vw;
+  height: 10vh;
+  position: relative;
+
+  .imgPreview {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.6);
+    opacity: 0;
+    box-shadow:inset 0 0 0 5px $darkOrange;
+    color: $darkOrange;
+
+    font-size: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .removeButton {
+      height: 100%;
+      width: 100%;
+      background: none;
+      border: none;
+    }
+  }
+}
+
+.comparedItem:hover .overlay {
+  opacity: 1;
+  transition: all 1s;
+}
