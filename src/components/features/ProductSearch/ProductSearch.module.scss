@@ -11,6 +11,7 @@
     display: flex;
     align-items: center;
     position: relative;
+    width: 200px;
 
     .icon:first-child {
       color: $primary;
@@ -42,6 +43,7 @@
       display: block;
       padding: 3px;
       width: 100%;
+      font-size: 14px;
       transition: all .3s ease-in-out;
     }
 
@@ -50,15 +52,17 @@
       transform: scaleY(0) translate(-50%, 0);
       position: absolute;
       z-index: 2;
-      top: 76%;
+      top: 80%;
       left: 50%;
       display: flex;
       flex-direction: column;
       transform-origin: top center;
       margin: 0;
-      width: 100%;
+      width: 201.5px;
       text-align: center;
       background-color: #fff;
+      border: 1px solid $form-border-color;
+      border-top: none;
     }
 
     &:hover ul li .dropdown {
@@ -80,6 +84,12 @@
     display: flex;
     align-items: center;
     position: relative;
+    &:hover button {
+      color: $primary;
+    }
+    &:hover input::placeholder {
+      color: lighten($primary, 20%);
+    }
 
     input {
       border: 0;
@@ -88,7 +98,19 @@
       outline: none;
 
       &::placeholder {
-        color: $text-color;
+        color: lighten($text-color, 50%);
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &:focus::placeholder {
+        color: lighten($primary, 20%);
+      }
+
+      &:focus +button {
+        color: $primary;
       }
     }
 
