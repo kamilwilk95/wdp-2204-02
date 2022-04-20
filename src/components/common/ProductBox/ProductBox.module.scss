@@ -106,7 +106,7 @@
   }
 
   .comparing {
-    background-color: $primary;
+    background-color: $darkOrange;
   }
 
   .pricesContainer {
@@ -134,8 +134,8 @@
   }
 
   .buttonCompare:hover, .comparing {
-    border: 1px solid $primary;
-    background-color: $primary;
+    border: 1px solid $darkOrange;
+    background-color: $darkOrange;
     color: #ffffff;
   }
 }
