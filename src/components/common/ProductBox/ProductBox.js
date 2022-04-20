@@ -14,7 +14,7 @@ import clsx from 'clsx';
 import { useDispatch } from 'react-redux';
 import { toggleCardFavorite} from '../../../redux/productsRedux';
 
-const ProductBox = ({ id, name, price, promo, stars, oldPrice, isFavorite }) => {
+const ProductBox = ({ id, name, price, promo, stars, oldPrice, isFavorite, isComparison }) => {
 
   const dispatch = useDispatch();
 
@@ -59,8 +59,8 @@ const ProductBox = ({ id, name, price, promo, stars, oldPrice, isFavorite }) => 
           <Button variant='outline' onClick={favoriteClick} className={clsx(styles.buttonFavorite, isFavorite && styles.isFavorite)}>
             <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
           </Button>
-          <Button variant='outline'>
-            <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
+          <Button variant='outline' className={clsx(isComparison && styles.isComparison)}>
+            <FontAwesomeIcon icon={faExchangeAlt} >Add to compare</FontAwesomeIcon>
           </Button>
         </div>
         <div className={styles.pricesContainer}>
@@ -87,6 +87,7 @@ ProductBox.propTypes = {
   stars: PropTypes.number,
   oldPrice: PropTypes.number,
   isFavorite: PropTypes.bool,
+  isComparison: PropTypes.bool,
 };
 
 export default ProductBox;
