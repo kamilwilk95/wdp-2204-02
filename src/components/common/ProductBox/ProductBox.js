@@ -10,17 +10,24 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
+
 import clsx from 'clsx';
 import { useDispatch } from 'react-redux';
-import { toggleCardFavorite} from '../../../redux/productsRedux';
+import { toggleCardFavorite, toggleComparing } from '../../../redux/productsRedux';
 
-const ProductBox = ({ id, name, price, promo, stars, oldPrice, isFavorite, isComparison }) => {
+
+const ProductBox = ({ id, name, price, promo, stars, oldPrice, isFavorite, comparing }) => {
 
   const dispatch = useDispatch();
 
   const favoriteClick = (event) => {
     event.preventDefault();
     dispatch(toggleCardFavorite(id));
+  };
+
+  const toggleCompare = e => {
+    e.preventDefault();
+    dispatch(toggleComparing(id));
   };
 
   return (
@@ -59,17 +66,17 @@ const ProductBox = ({ id, name, price, promo, stars, oldPrice, isFavorite, isCom
           <Button variant='outline' onClick={favoriteClick} className={clsx(styles.buttonFavorite, isFavorite && styles.isFavorite)}>
             <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
           </Button>
-          <Button variant='outline' className={clsx(isComparison && styles.isComparison)}>
-            <FontAwesomeIcon icon={faExchangeAlt} >Add to compare</FontAwesomeIcon>
+          <Button variant='outline' onClick={toggleCompare} className={clsx(styles.buttonCompare, comparing && styles.comparing)}>
+            <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
           </Button>
         </div>
         <div className={styles.pricesContainer}>
           <div className={clsx(styles.oldPrice, !oldPrice && styles.noOldPrice)}>
-          ${oldPrice}
+            ${oldPrice}
           </div>
           <div className={styles.price}>
             <Button noHover variant='small'>
-            ${price}
+              ${price}
             </Button>
           </div>
         </div>
@@ -86,6 +93,7 @@ ProductBox.propTypes = {
   promo: PropTypes.string,
   stars: PropTypes.number,
   oldPrice: PropTypes.number,
+  comparing: PropTypes.bool,
   isFavorite: PropTypes.bool,
   isComparison: PropTypes.bool,
 };

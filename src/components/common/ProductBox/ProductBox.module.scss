@@ -105,6 +105,10 @@
     flex-wrap: wrap;
   }
 
+  .comparing {
+    background-color: $primary;
+  }
+
   .pricesContainer {
     display: flex;
     justify-content: center;
@@ -129,15 +133,9 @@
     color: $productBox-bg;
   }
 
-  .outline{
+  .buttonCompare:hover, .comparing {
     border: 1px solid $primary;
-    background-color: black;
-    color: #ffffff;
-  }
-  
-  .outlines .isComparison:hover, .isComparison{
-    border: 1px solid $form-border-color;
-    background-color: $form-border-color;
+    background-color: $primary;
     color: #ffffff;
   }
 }
