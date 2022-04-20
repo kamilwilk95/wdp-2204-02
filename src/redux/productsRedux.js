@@ -22,8 +22,16 @@ export const toggleCardFavorite = payload => ({type: TOGGLE_CARD_FAVORITE, paylo
 /* reducer */
 export default function reducer(statePart = [], action = {}) {
   switch (action.type) {
-    case TOGGLE_COMPARING:
-      return statePart.map(product => (product.id === action.payload) ? { ...product, comparing: !product.comparing } : product );
+    case TOGGLE_COMPARING: {
+      let selected = statePart.filter(item => item.comparing === true);
+      if (selected.length < 4) {
+        return statePart.map(product => (product.id === action.payload) ? { ...product, comparing: !product.comparing } : product );
+      } else if (selected.length === 4) {
+        return statePart.map(product => (product.id === action.payload) ? { ...product, comparing: false } : product );
+      } else {
+        return statePart;
+      }
+    }
     case TOGGLE_CARD_FAVORITE:
       return statePart.map(product => (product.id === action.payload) ? { ...product, isFavorite: !product.isFavorite } : product);
     default:
