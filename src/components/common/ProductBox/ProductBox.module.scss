@@ -127,7 +127,6 @@
     border: 1px solid $primary;
     background-color: $primary;
     color: #ffffff;
-    @include hover-animation-background;
   }
 
   .outline{
@@ -140,6 +139,8 @@
     border: 1px solid $form-border-color;
     background-color: $form-border-color;
     color: #ffffff;
+  }
+  a:hover{
     @include hover-animation-background;
   }
 }
