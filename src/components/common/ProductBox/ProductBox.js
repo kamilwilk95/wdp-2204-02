@@ -15,6 +15,7 @@ import clsx from 'clsx';
 import { useDispatch } from 'react-redux';
 import { toggleCardFavorite, toggleComparing } from '../../../redux/productsRedux';
 
+
 const ProductBox = ({ id, name, price, promo, stars, oldPrice, isFavorite, comparing }) => {
 
   const dispatch = useDispatch();
@@ -94,6 +95,7 @@ ProductBox.propTypes = {
   oldPrice: PropTypes.number,
   comparing: PropTypes.bool,
   isFavorite: PropTypes.bool,
+  isComparison: PropTypes.bool,
 };
 
 export default ProductBox;
