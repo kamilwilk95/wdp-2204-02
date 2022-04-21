@@ -81,7 +81,7 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@include for-tablet {
   .bottomRow {
     display: flex;
 
@@ -98,7 +98,8 @@
   }
 }
 
-@media screen and (max-width: 425px) {
+
+@include for-mobile-l {
   .column {
     flex: 50%;
     box-sizing: border-box;
@@ -109,7 +110,7 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@include for-mobile-s {
   .column {
     flex: 100%;
     box-sizing: border-box;
