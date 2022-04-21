@@ -140,7 +140,7 @@
     background-color: $form-border-color;
     color: #ffffff;
   }
-  a:hover{
+  .btn:hover{
     @include hover-animation-background;
   }
 }
