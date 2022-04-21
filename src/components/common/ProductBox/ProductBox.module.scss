@@ -1,8 +1,8 @@
 @import "../../../styles/settings.scss";
 
 .root {
-  background-color: #ffffff;
-  border: 1px solid #e1e1e1;
+  background-color: $productBox-bg;
+  border: 1px solid $productBox-border;
   margin-bottom: 2rem;
 
   .photo {
@@ -29,9 +29,9 @@
       top: -30px;
       left: 50%;
       transform: translateX(-50%);
-      background-color: #292929;
+      background-color: $productBox-sale-box;
       border-radius: 50%;
-      color: #ffffff;
+      color: $productBox-bg;
       padding: 30px 15px 5px 15px;
     }
 
@@ -53,7 +53,7 @@
 
   }
   .photo:hover ~.actions .pricesContainer :nth-last-of-type(1){
-    background-color: $primary;
+    background-color: $productBox-hover;
   }
 
   .content {
@@ -61,7 +61,7 @@
     padding: 20px;
 
     h5 {
-      color: $primary;
+      color: $productBox-hover;
       font-size: 16px;
       line-height: 24px;
       letter-spacing: 1px;
@@ -70,7 +70,7 @@
     .stars {
       a {
         text-decoration: none;
-        color: rgb(42, 42, 42);
+        color: $productBox-stars;
       }
     }
   }
@@ -86,7 +86,7 @@
       bottom: -1px;
       left: 50%;
       width: 30px;
-      border-bottom: 4px solid $primary;
+      border-bottom: 4px solid $productBox-hover;
       transform: translateX(-50%);
     }
   }
@@ -105,6 +105,10 @@
     flex-wrap: wrap;
   }
 
+  .comparing {
+    background-color: $darkOrange;
+  }
+
   .pricesContainer {
     display: flex;
     justify-content: center;
@@ -115,7 +119,7 @@
     .oldPrice {
       text-decoration: line-through;
       font-size: 13px;
-      color: #a5a5a5;
+      color: $productBox-old-price;
     }
 
     .noOldPrice {
@@ -124,10 +128,14 @@
   }
 
   .outlines .buttonFavorite:hover, .isFavorite {
-    border: 1px solid $primary;
-    background-color: $primary;
+    border: 1px solid $productBox-hover;
+    background-color: $productBox-hover;
+    color: $productBox-bg;
+  }
+
+  .buttonCompare:hover, .comparing {
+    border: 1px solid $darkOrange;
+    background-color: $darkOrange;
     color: #ffffff;
   }
 }
-
-
