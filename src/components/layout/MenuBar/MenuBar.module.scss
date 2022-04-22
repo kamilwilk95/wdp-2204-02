@@ -5,7 +5,11 @@
   background-color: $menuBar-bg;
 
   :global(.container) > :global(.row) {
-    height: 84px;
+    min-height: 84px;
+  }
+
+  .search_wrapper{
+    margin: 25px 0; 
   }
 
   .menu {
@@ -48,4 +52,99 @@
       }
     }
   }
+  .icon_menu {
+    display: none;
+  }
+
+  .mobile_navigation{
+    display: none;
+
+  }
+
+    @media (max-width: 767px) {
+  .icon_menu{
+  display: block;
+  }
+
+  .navigation{
+    display: none;
+  }
+
+  .mobile_navigation{
+    margin-top: 5px;
+    display: block;
+  }
+  }
 }
+
+.menu_mob{
+  border: 1px solid #000;
+  position: absolute;
+  top: 297px;
+  right: 0;
+  z-index: 15;
+  background-color: $menuBurger-bg;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  ul li{
+    margin: 15px 0;
+  }
+  a{
+    color: $menuBurger-text;
+    text-transform: uppercase;
+    font-size: 12px;
+    text-decoration: none;
+    align-items: center;
+    font-weight: 500;
+    letter-spacing: 1px;
+    &:hover,
+    &.active {
+      color: $menuBurger-hover;
+    }
+  }
+}
+
+
+
+/* menu icon styles */
+.icon_menu {
+  z-index: 5;
+  display: none;
+  position: relative;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+  color: $menuBurger-ico;
+}
+
+.icon_menu span,
+.icon_menu::before,
+.icon_menu::after {
+  left: 0;
+  position: absolute;
+  height: 15%;
+  width: 100%;
+  transition: all 0.3s ease 0s;
+  background-color: $menuBurger-ico;
+  border-radius: 4px;
+}
+
+.icon_menu::before,
+.icon_menu::after {
+  content: "";
+}
+
+.icon_menu::before {
+  top: 0;
+}
+
+.icon_menu::after {
+  bottom: 0;
+}
+
+.icon_menu span {
+  top: 50%;
+  transform: scale(1) translate(0px, -50%);
+}
+/* --------- */
