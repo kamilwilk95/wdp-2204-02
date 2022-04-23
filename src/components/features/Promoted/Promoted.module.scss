@@ -1,0 +1,202 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  padding-top: 40px;
+
+  .leftSide {
+
+    .heading {
+      height: 50px;
+      background-color: black;
+
+      .hotDeals {
+        padding-top: 10px;
+        font-size: 20px;
+        color:white;
+      }
+
+      .dots {
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        ul {
+          margin: 0;
+          padding: 0 0 0 1rem;
+          list-style: none;
+          transform: translateY(15px);
+
+          li {
+            display: inline-block;
+            margin-left: 0.5rem;
+
+            a {
+              display: block;
+              width: 13px;
+              height: 13px;
+              border-radius: 6px;
+              background-color: green;
+              font-size: 0;
+            }
+          }
+        }
+      }
+    }
+    .photoBoxLeft {
+      position: relative;
+      height: 300px;;
+      background: {
+        color: #f4f5f7;
+        size: contain;
+        position: center;
+        repeat: no-repeat;
+      }
+      overflow: hidden;
+      align-items: flex-end;
+
+      .imageLeft{
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .time {
+      position: absolute;
+      padding: 0 50px;
+      margin-top: 80px;
+      height: 60px;
+      width: 100%;
+      z-index: 90;
+      background-color: transparent;
+      opacity: 90%;
+
+     .timeBox {
+      display: block;
+      margin: 0;
+      height: 60px;
+      text-align: center;
+      //color: $timer-font-color;
+      border-radius: 50%;
+      //background-color: $timer-backgorund;
+
+        .timeValue {
+          margin: 7px 0 0;
+          font-size: 28px;
+          line-height: 1;
+        }
+
+        .timeUnit {
+          font-size: 12px;
+        }
+      }
+    }
+
+  &:hover {
+    .button{
+      visibility: visible;
+      z-index: 2;
+    }
+  }
+
+    .content {
+      text-align: center;
+      padding: 20px;
+
+      h5 {
+        //color: $productBox-hover;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 1px;
+      }
+
+      .stars {
+        a {
+          text-decoration: none;
+          color: gold;
+        }
+      }
+    }
+
+    .line {
+      margin: 0 10px;
+      border-bottom: 1px solid #2a2a2a;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        left: 50%;
+        width: 30px;
+        border-bottom: 4px solid $productBox-hover;
+        transform: translateX(-50%);
+      }
+    }
+
+    .actions {
+      padding: 15px 10px 10px 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .outlines {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .comparing {
+      background-color: $darkOrange;
+    }
+
+    .pricesContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap-reverse;
+      gap: 5px;
+
+      .oldPrice {
+        text-decoration: line-through;
+        font-size: 13px;
+        color: $productBox-old-price;
+      }
+
+      .noOldPrice {
+        display: none;
+      }
+    }
+
+    .outlines .buttonFavorite:hover, .isFavorite {
+      border: 1px solid $productBox-hover;
+      background-color: $productBox-hover;
+      color: $productBox-bg;
+    }
+
+    .buttonCompare:hover, .comparing {
+      border: 1px solid $darkOrange;
+      background-color: $darkOrange;
+      color: #ffffff;
+    }
+  }
+
+  .rightSide{
+    max-width: 750px;
+    max-height: 500px;
+    padding: 0;
+
+    .photoBoxRight{
+      position: relative;
+      margin: 0 auto;
+      padding: 0;
+
+      .imageRight {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
