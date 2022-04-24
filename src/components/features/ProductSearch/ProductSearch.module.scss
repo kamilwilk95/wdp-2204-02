@@ -1,17 +1,18 @@
 @import "../../../styles/settings.scss";
 
 .root {
-  border: 1px solid $search-border;
   display: inline-flex;
   height: 45px;
   color: $search-text;
+  align-items:center;
 
   .category {
-    border-right: 1px solid $search-border;
+    border: 1px solid $search-border;
     display: flex;
     align-items: center;
     position: relative;
     width: 200px;
+    height: 45px;
 
     .icon:first-child {
       color: $search-hover;
@@ -81,9 +82,12 @@
   }
 
   .searchField {
+    height: 45px;
     display: flex;
     align-items: center;
     position: relative;
+    border: 1px solid $search-border;
+    
 
     &:hover button {
       color: $darkOrange;
@@ -121,6 +125,17 @@
       border: 0;
       background-color: transparent;
       outline: none;
+    }
+  }
+}
+@media (max-width: 494px){
+  .root {
+    min-height: 84px;
+    flex-wrap: wrap;
+    .searchField {
+      input{
+        max-width: 170px;
+      }
     }
   }
 }
