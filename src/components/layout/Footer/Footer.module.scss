@@ -80,3 +80,44 @@
     }
   }
 }
+
+@include for-tablet {
+  .bottomRow {
+    display: flex;
+
+    .placeholderElement {
+      flex: 100%;
+      text-align: center;
+      color: $footer-secondary-text;
+      display: none;
+    }
+
+    .copyright {
+      text-align: left !important;
+    }
+  }
+}
+
+
+@include for-mobile-l {
+  .column {
+    flex: 50%;
+    box-sizing: border-box;
+
+    .cardsImage {
+      width: 100%;
+    }
+  }
+}
+
+@include for-mobile-s {
+  .column {
+    flex: 100%;
+    box-sizing: border-box;
+    text-align: center;
+
+    .cardsImage {
+      width: 50%;
+    }
+  }
+}
