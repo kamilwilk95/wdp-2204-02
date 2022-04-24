@@ -99,3 +99,14 @@
     }
   }
 }
+.fadeWrapper {
+  transition: .5s opacity ease-in
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+.fade-in {
+  opacity: 1;
+}
