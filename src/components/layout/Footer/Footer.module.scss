@@ -7,7 +7,7 @@
 
     .menuWrapper {
       h6 {
-        color: #ffffff;
+        color: $footer-primaty-text;
         text-transform: uppercase;
         margin: 0 0 1rem 0;
       }
@@ -20,10 +20,10 @@
           a {
             font-size: 14px;
             line-height: 30px;
-            color: rgb(169, 169, 169);
+            color: $footer-secondary-text;
 
             &:hover {
-              color: #ffffff;
+              color: $footer-primaty-text;
               @include hover-animation-text;
             }
           }
@@ -52,7 +52,7 @@
     .copyright {
       p {
         margin: 0;
-        color: rgb(169, 169, 169);
+        color: $footer-secondary-text;
         font-size: 14px;
         line-height: 26px;
       }
@@ -69,16 +69,57 @@
           margin-left: 1rem;
 
           a {
-            color: rgb(169, 169, 169);
+            color: $footer-secondary-text;
             text-decoration: none;
 
             &:hover {
-              color: $primary;
+              color: $footer-hover;
               @include hover-animation-text;
             }
           }
         }
       }
+    }
+  }
+}
+
+@include for-tablet {
+  .bottomRow {
+    display: flex;
+
+    .placeholderElement {
+      flex: 100%;
+      text-align: center;
+      color: $footer-secondary-text;
+      display: none;
+    }
+
+    .copyright {
+      text-align: left !important;
+    }
+  }
+}
+
+
+@include for-mobile-l {
+  .column {
+    flex: 50%;
+    box-sizing: border-box;
+
+    .cardsImage {
+      width: 100%;
+    }
+  }
+}
+
+@include for-mobile-s {
+  .column {
+    flex: 100%;
+    box-sizing: border-box;
+    text-align: center;
+
+    .cardsImage {
+      width: 50%;
     }
   }
 }
