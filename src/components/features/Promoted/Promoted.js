@@ -1,9 +1,13 @@
 import React from 'react';
-import styles from './Promoted.module.scss';
 import clsx from 'clsx';
+
+import styles from './Promoted.module.scss';
+
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faExchangeAlt, faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
-import { faStar as farStar, faEye, faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faEye, faHeart } from '@fortawesome/free-regular-svg-icons';
+
 import Button from '../../common/Button/Button';
 import initialState from '../../../redux/initialState';
 
@@ -13,7 +17,6 @@ const Promoted = () => (
   <div className={styles.root}>
     <div className='container'>
       <div className='row'>
-
         <div className={clsx('col-4',  styles.leftSide)}>
           <div className={styles.heading}>
             <div className={clsx(styles.hotDeals, 'col' )}>
@@ -33,19 +36,16 @@ const Promoted = () => (
               </ul>
             </div>
           </div>
-
           <div className={styles.photoBoxLeft}>
             <img
               className={styles.imageLeft}
               alt={'Aenean Ru Bristique'}
               src={`${process.env.PUBLIC_URL}/images/products/Aenean Ru Bristique 8.jpg`}
             />
-
             <Button variant='small' className={styles.shoppingBasket}>
               <FontAwesomeIcon className={styles.icon} icon={faShoppingBasket} />
               <span> ADD TO CARD</span>
             </Button>
-
             <div className={clsx('row', styles.time)}>
               <div className={clsx('col', styles.timeBox)}>
                 <div className={styles.timeValue}>
@@ -79,10 +79,8 @@ const Promoted = () => (
                   <span>SECS</span>
                 </div>
               </div>
-
             </div>
           </div>
-
           <div className={styles.content}>
             <h5>Aenean Ru Bristique 8</h5>
             <div className={styles.stars}>
@@ -118,7 +116,6 @@ const Promoted = () => (
             </div>
           </div>
         </div>
-
         <div className={clsx('col-8',  styles.rightSide)}>
           <div className={styles.photoBoxRight}>
             <img
@@ -126,37 +123,26 @@ const Promoted = () => (
               alt={'Aenean Ru Bristique'}
               src={`${process.env.PUBLIC_URL}/images/baner indoor furniture.jpg`}
             />
-
             <div className={styles.shadowImage}>
               <div className={styles.slogan}>
                 INDOOR <span>FURNITURE</span>
               </div>
-
               <div className={styles.sloganSubtitle}>
                 <p>SAVE UP TO 50% OF ALL FURNITURE</p>
               </div>
             </div>
-
             <div className={styles.shopButton}>
               <Button variant='light'>SHOP NOW</Button>
             </div>
-
-
             <div className={clsx('row', styles.arrowButtonSet)}>
-
               <div className={clsx('col-6', styles.longButton)}>
                 <Button variant='long'>{'<'}</Button>
               </div>
               <div className={clsx('col-6', styles.longButton)}>
                 <Button variant='long'>{'>'}</Button>
               </div>
-
             </div>
           </div>
-
-
-
-
         </div>
       </div>
     </div>
