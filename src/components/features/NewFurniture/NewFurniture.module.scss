@@ -92,6 +92,7 @@
             &.active,
             &:hover {
               background-color: $furniture-hover;
+              @include hover-animation-background;
             }
           }
         }
@@ -100,7 +101,7 @@
   }
 }
 .fadeWrapper {
-  transition: .5s opacity ease-in
+  transition: 0.5s opacity ease-in;
 }
 
 .fade-out {

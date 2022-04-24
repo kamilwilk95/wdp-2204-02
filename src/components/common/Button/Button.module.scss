@@ -15,6 +15,7 @@
     color: $button-text !important;
     background-color: $button-hover;
     text-decoration: none;
+    @include hover-animation-background;
   }
 }
 
@@ -39,3 +40,4 @@
     color: $button-text;
   }
 }
+

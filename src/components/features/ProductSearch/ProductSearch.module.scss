@@ -44,11 +44,11 @@
       padding: 3px;
       width: 100%;
       font-size: 14px;
-      transition: all .3s ease-in-out;
+      transition: all 0.3s ease-in-out;
     }
 
     .dropdown {
-      transition: transform .3s ease-in-out;
+      transition: transform 0.3s ease-in-out;
       transform: scaleY(0) translate(-50%, 0);
       position: absolute;
       z-index: 2;
@@ -70,6 +70,7 @@
     }
 
     .dropdown li:hover .option {
+      @include hover-animation-text;
       background: $search-hover;
       color: $search-bg;
     }
@@ -77,6 +78,7 @@
     .categorySelect:hover .dropdown li:hover .option {
       background: $search-hover;
       color: $search-bg;
+      @include hover-animation-background;
     }
   }
 
@@ -111,9 +113,8 @@
         color: lighten($darkOrange, 20%);
       }
 
-      &:focus+button {
+      &:focus + button {
         color: $darkOrange;
-
       }
     }
 
