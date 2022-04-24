@@ -54,10 +54,10 @@ const ProductBox = ({ id, name, price, promo, stars, oldPrice, isFavorite, compa
       <div className={styles.line}></div>
       <div className={styles.actions}>
         <div className={styles.outlines}>
-          <Button variant='outline' onClick={favoriteClick} className={clsx(styles.buttonFavorite, isFavorite && styles.isFavorite)}>
+          <Button variant='outline' onClick={favoriteClick} className={clsx(styles.buttonFavorite, styles.btn, isFavorite && styles.isFavorite)}>
             <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
           </Button>
-          <Button variant='outline' onClick={toggleCompare} className={clsx(styles.buttonCompare, comparing && styles.comparing)}>
+          <Button variant='outline' onClick={toggleCompare} className={clsx(styles.buttonCompare, styles.btn, comparing && styles.comparing)}>
             <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
           </Button>
         </div>
