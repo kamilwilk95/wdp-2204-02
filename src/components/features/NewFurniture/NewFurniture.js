@@ -5,19 +5,47 @@ import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
 import Swipable from '../../common/Swipeable/Swipable';
 
+import clsx from 'clsx';
+
 class NewFurniture extends React.Component {
   state = {
     activePage: 0,
     activeCategory: 'bed',
+
+    fadeTransition: null,
+    fadeState: 'fade-in',
   };
 
-  handlePageChange(newPage) {
-    this.setState({ activePage: newPage });
+  handleFade(statePart, newCategory) {
+    const timeout = setTimeout(() => {
+      this.setState({
+        [statePart]: newCategory,
+        fadeTransition : null,
+        fadeState : 'fade-in',
+      });
+    }, 500);
+    clearTimeout(this.state.fadeTransition);
+    this.setState({
+      fadeState : 'fade-out',
+      fadeTransition : timeout,
+    });
   }
 
   handleCategoryChange(newCategory) {
-    this.setState({ activeCategory: newCategory });
+    this.handleFade('activeCategory', newCategory);
   }
+
+  handlePageChange(newPage){
+    this.handleFade('activePage', newPage);
+  }
+
+  // handlePageChange(newPage) {
+  //   this.setState({ activePage: newPage });
+  // }
+
+  // handleCategoryChange(newCategory) {
+  //   this.setState({ activeCategory: newCategory });
+  // }
 
   render() {
     const { categories, products } = this.props;
@@ -84,11 +112,11 @@ class NewFurniture extends React.Component {
                 </div>
               </div>
             </div>
-            <div className='row'>
+            <div className={clsx('row', styles.fadeWrapper, styles[this.state.fadeState])}>
               {categoryProducts
                 .slice(activePage * 8, (activePage + 1) * 8)
                 .map(item => (
-                  <div key={item.id} className='col-3'>
+                  <div key={item.id} className={clsx('col-3', styles.fadeWrapper, styles[this.state.fadeState])}>
                     <ProductBox {...item} />
                   </div>
                 ))}
