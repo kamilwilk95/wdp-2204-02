@@ -7,11 +7,35 @@
    }
 }
 
-@media (max-width: 575.98px) {
-  h5 {
-    font-size: 17.5px;
+@include for-tablet {
+  .title {
+    font-size: 16px;
   }
-  p {
+  .subtitle {
     font-size: 15px;
+  }
+}
+@include for-mobile-l {
+  .title {
+    font-size: 14px;
+  }
+  .subtitle {
+    font-size: 13px;
+  }
+}
+@include for-mobile-m {
+  .title {
+    font-size: 11px;
+  }
+  .subtitle {
+    font-size: 10px;
+  }
+}
+@include for-mobile-s {
+  .title {
+    font-size: 9.5px;
+  }
+  .subtitle {
+    font-size: 8.5px;
   }
 }
