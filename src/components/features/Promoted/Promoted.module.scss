@@ -1,20 +1,21 @@
 @import "../../../styles/settings.scss";
 
 .root {
-  padding-top: 40px;
+  padding-top: 50px;
 
   .leftSide {
 
     .heading {
       height: 50px;
-      background-color: black;
+      background-color: $promoted-bg;
 
       .hotDeals {
-        padding-top: 10px;
-        font-size: 20px;
-        color:white;
+        h4 {
+          line-height: 50px;
+          font-size: 18px;
+          color:$promoted-text;
+        }
       }
-
       .dots {
         position: absolute;
         right: 0;
@@ -32,11 +33,15 @@
 
             a {
               display: block;
-              width: 13px;
-              height: 13px;
+              width: 11px;
+              height: 11px;
               border-radius: 6px;
-              background-color: green;
+              background-color: $promoted-light-bg;
               font-size: 0;
+
+              &.active, &:hover {
+                background-color: $promoted-hover;
+              }
             }
           }
         }
@@ -44,7 +49,7 @@
     }
     .photoBoxLeft {
       position: relative;
-      height: 300px;;
+      height: 300px;
       background: {
         color: #f4f5f7;
         size: contain;
@@ -52,58 +57,65 @@
         repeat: no-repeat;
       }
       overflow: hidden;
-      align-items: flex-end;
 
       .imageLeft{
+        position: absolute;
         object-fit: cover;
         width: 100%;
         height: 100%;
       }
-    }
-    .time {
-      position: absolute;
-      padding: 0 50px;
-      margin-top: 80px;
-      height: 60px;
-      width: 100%;
-      z-index: 90;
-      background-color: transparent;
-      opacity: 90%;
 
-     .timeBox {
-      display: block;
-      margin: 0;
-      height: 60px;
-      text-align: center;
-      //color: $timer-font-color;
-      border-radius: 50%;
-      //background-color: $timer-backgorund;
+      .shoppingBasket {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        visibility: hidden;
+      }
 
-        .timeValue {
-          margin: 7px 0 0;
-          font-size: 28px;
-          line-height: 1;
+      .time {
+        position: absolute;
+        top: 79%;
+        margin: 0 10%;
+        background-color: transparent;
+        visibility: hidden;
+
+        .timeBox {
+          display: block;
+          margin: 0 5px;
+          background-color: $promoted-bg;
+          opacity: 80%;
+          border-radius: 50%;
+          color: $promoted-text;
+          text-align: center;
+          width: 58px;
+          height: 58px;
+
+          .timeValue {
+            margin-top: 5px;
+            font-size: 18px;
+          }
+          .timeUnit {
+            font-size: 12px;
+          }
         }
+      }
 
-        .timeUnit {
-          font-size: 12px;
+      &:hover {
+        .shoppingBasket, .time {
+          visibility: visible;
+        }
+        ~.actions .pricesContainer :nth-last-of-type(1){
+          background-color: $promoted-hover;
         }
       }
     }
-
-  &:hover {
-    .button{
-      visibility: visible;
-      z-index: 2;
-    }
-  }
 
     .content {
       text-align: center;
       padding: 20px;
 
       h5 {
-        //color: $productBox-hover;
         font-size: 16px;
         line-height: 24px;
         letter-spacing: 1px;
@@ -112,14 +124,14 @@
       .stars {
         a {
           text-decoration: none;
-          color: gold;
+          color: $promoted-stars;
         }
       }
     }
 
     .line {
       margin: 0 10px;
-      border-bottom: 1px solid #2a2a2a;
+      border-bottom: 1px solid $promoted-bg;
       position: relative;
 
       &::before {
@@ -128,7 +140,7 @@
         bottom: -1px;
         left: 50%;
         width: 30px;
-        border-bottom: 4px solid $productBox-hover;
+        border-bottom: 4px solid $promoted-hover;
         transform: translateX(-50%);
       }
     }
@@ -147,10 +159,6 @@
       flex-wrap: wrap;
     }
 
-    .comparing {
-      background-color: $darkOrange;
-    }
-
     .pricesContainer {
       display: flex;
       justify-content: center;
@@ -161,7 +169,7 @@
       .oldPrice {
         text-decoration: line-through;
         font-size: 13px;
-        color: $productBox-old-price;
+        color: $promoted-old-price;
       }
 
       .noOldPrice {
@@ -169,33 +177,74 @@
       }
     }
 
-    .outlines .buttonFavorite:hover, .isFavorite {
-      border: 1px solid $productBox-hover;
-      background-color: $productBox-hover;
-      color: $productBox-bg;
-    }
-
-    .buttonCompare:hover, .comparing {
-      border: 1px solid $darkOrange;
-      background-color: $darkOrange;
-      color: #ffffff;
+    .outlines .icon:hover {
+      border: 1px solid $promoted-hover;
+      background-color: $promoted-hover;
+      color: $promoted-text;
     }
   }
 
   .rightSide{
-    max-width: 750px;
-    max-height: 500px;
-    padding: 0;
 
     .photoBoxRight{
       position: relative;
-      margin: 0 auto;
-      padding: 0;
+      height: 100%;
 
       .imageRight {
+        position: absolute;
         object-fit: cover;
         width: 100%;
         height: 100%;
+      }
+      .shadowImage {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        height: 50%;
+        background-color: $promoted-bg;
+        opacity: 50%;
+        color: $promoted-text;
+        .slogan {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+          font-size: 39px;
+          font-weight: 200;
+          span {
+            font-weight: 600;
+          }
+        }
+        .sloganSubtitle {
+          position: absolute;
+          top: 66%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+          font-size: 17px;
+          font-weight: 200;
+        }
+      }
+      .shopButton {
+        position: absolute;
+        top: 74%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: $promoted-light-bg;
+        color: black;
+      }
+    }
+    .arrowButtonSet {
+      position: absolute;
+      text-align: center;
+      width: 100%;
+      bottom: 0px;
+      margin: 0;
+
+      .longButton {
+        padding: 0;
       }
     }
   }
