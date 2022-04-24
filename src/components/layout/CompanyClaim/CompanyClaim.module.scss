@@ -71,3 +71,18 @@
     }
   }
 }
+
+@include for-tablet {
+
+  .root {
+    .phoneNumber {
+      order: 3;
+      text-align: right;
+    }
+  
+    .cart {
+      order: 2;
+      padding-bottom: 25px;
+    }
+  }
+}
