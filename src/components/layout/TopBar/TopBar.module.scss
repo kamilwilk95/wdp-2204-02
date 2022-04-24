@@ -41,7 +41,7 @@
   }
 }
 
-@media (min-width: 320px) and (max-width: 512px) {
+@include for-tablet {
 
   .text{
     font-size: 0;
