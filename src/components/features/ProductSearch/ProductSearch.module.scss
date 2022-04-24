@@ -1,19 +1,20 @@
 @import "../../../styles/settings.scss";
 
 .root {
-  border: 1px solid $form-border-color;
+  border: 1px solid $search-border;
   display: inline-flex;
   height: 45px;
-  color: $text-color;
+  color: $search-text;
 
   .category {
-    border-right: 1px solid $form-border-color;
+    border-right: 1px solid $search-border;
     display: flex;
     align-items: center;
     position: relative;
+    width: 200px;
 
     .icon:first-child {
-      color: $primary;
+      color: $search-hover;
       position: absolute;
       left: 10px;
       z-index: 0;
@@ -25,13 +26,57 @@
       z-index: 0;
     }
 
-    select {
-      -webkit-appearance: none;
-      border: 0;
-      background-color: transparent;
+    ul {
+      margin: 1rem 0;
       padding: 5px 30px 5px 35px;
-      position: relative;
+      display: flex;
+      list-style: none;
+    }
+
+    li {
       z-index: 1;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    span {
+      display: block;
+      padding: 3px;
+      width: 100%;
+      font-size: 14px;
+      transition: all .3s ease-in-out;
+    }
+
+    .dropdown {
+      transition: transform .3s ease-in-out;
+      transform: scaleY(0) translate(-50%, 0);
+      position: absolute;
+      z-index: 2;
+      top: 80%;
+      left: 50%;
+      display: flex;
+      flex-direction: column;
+      transform-origin: top center;
+      margin: 0;
+      width: 201.5px;
+      text-align: center;
+      background-color: $search-bg;
+      border: 1px solid $search-border;
+      border-top: none;
+    }
+
+    &:hover ul li .dropdown {
+      transform: scaleY(1) translate(-50%, 0);
+    }
+
+    .dropdown li:hover .option {
+      background: $search-hover;
+      color: $search-bg;
+    }
+
+    .categorySelect:hover .dropdown li:hover .option {
+      background: $search-hover;
+      color: $search-bg;
     }
   }
 
@@ -40,6 +85,14 @@
     align-items: center;
     position: relative;
 
+    &:hover button {
+      color: $darkOrange;
+    }
+
+    &:hover input::placeholder {
+      color: lighten($darkOrange, 20%);
+    }
+
     input {
       border: 0;
       padding-left: 10px;
@@ -47,7 +100,20 @@
       outline: none;
 
       &::placeholder {
-        color: $text-color;
+        color: lighten($search-text, 50%);
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &:focus::placeholder {
+        color: lighten($darkOrange, 20%);
+      }
+
+      &:focus+button {
+        color: $darkOrange;
+
       }
     }
 

@@ -1,0 +1,33 @@
+@import "../../../styles/settings.scss";
+
+.compareSticky {
+  background-color: $compare-sticky-bg;
+  position: sticky;
+  bottom: 0;
+  box-shadow:inset 0px 10px $compare-sticky-border;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.invisibile {
+  display: none;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.compareButton {
+  margin: 2vh 1vh 1vh 1vh;
+}
+
+.compareBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1vh;
+  margin: 2vh 0 1vh 0;
+}

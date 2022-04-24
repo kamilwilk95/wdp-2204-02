@@ -1,13 +1,14 @@
 @import "../../../styles/settings.scss";
 
 .root {
-  background-color: #ffffff;
-  border: 1px solid #e1e1e1;
+  background-color: $productBox-bg;
+  border: 1px solid $productBox-border;
   margin-bottom: 2rem;
 
   .photo {
     position: relative;
-    padding: 80% 10px 0 10px;
+    width: 100%;
+    height: 300px;
     background: {
       color: #f4f5f7;
       size: contain;
@@ -17,21 +18,42 @@
     overflow: hidden;
     align-items: flex-end;
 
+    .image{
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+
     .sale {
       position: absolute;
       top: -30px;
       left: 50%;
       transform: translateX(-50%);
-      background-color: #292929;
+      background-color: $productBox-sale-box;
       border-radius: 50%;
-      color: #ffffff;
+      color: $productBox-bg;
       padding: 30px 15px 5px 15px;
     }
 
     .buttons {
+      display: none;
+    }
+  }
+
+  .photo:hover {
+    .buttons {
       display: flex;
       justify-content: space-between;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
     }
+
+  }
+  .photo:hover ~.actions .pricesContainer :nth-last-of-type(1){
+    background-color: $productBox-hover;
   }
 
   .content {
@@ -39,7 +61,7 @@
     padding: 20px;
 
     h5 {
-      color: $primary;
+      color: $productBox-hover;
       font-size: 16px;
       line-height: 24px;
       letter-spacing: 1px;
@@ -48,14 +70,14 @@
     .stars {
       a {
         text-decoration: none;
-        color: rgb(42, 42, 42);
+        color: $productBox-stars;
       }
     }
   }
 
   .line {
     margin: 0 10px;
-    border-bottom: 1px solid #2a2a2a;
+    border-bottom: 1px solid $productBox-stars;
     position: relative;
 
     &::before {
@@ -64,7 +86,7 @@
       bottom: -1px;
       left: 50%;
       width: 30px;
-      border-bottom: 4px solid $primary;
+      border-bottom: 4px solid $productBox-hover;
       transform: translateX(-50%);
     }
   }
@@ -74,5 +96,46 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .outlines {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .comparing {
+    background-color: $productBox-hover;
+  }
+
+  .pricesContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap-reverse;
+    gap: 5px;
+
+    .oldPrice {
+      text-decoration: line-through;
+      font-size: 13px;
+      color: $productBox-old-price;
+    }
+
+    .noOldPrice {
+      display: none;
+    }
+  }
+
+  .outlines .buttonFavorite:hover, .isFavorite {
+    border: 1px solid $productBox-hover;
+    background-color: $productBox-hover;
+    color: $productBox-bg;
+  }
+
+  .buttonCompare:hover, .comparing {
+    border: 1px solid $productBox-hover;
+    background-color: $productBox-hover;
+    color: #ffffff;
   }
 }
