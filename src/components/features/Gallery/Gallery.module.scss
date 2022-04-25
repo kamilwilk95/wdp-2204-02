@@ -5,14 +5,16 @@
   gap: 30px;
   margin-bottom: 30px;
 
-  // LEFT BOX
+// ----------- LEFT BOX -----------
+
   .galleryContainer {
     flex: 1;
     height: 600px;
     display: flex;
     flex-direction: column;
 
-    // HEADING + BUTTONS
+  // ----------- HEADING + BUTTONS -----------
+
     .headingBar {
       position: relative;
 
@@ -90,13 +92,31 @@
       }
     }
 
-    // PRODUCT SECTION
+// ----------- PRODUCT SECTION -----------
+
     .previewContainer {
-      flex: 50%; // do zmiany
+      flex: 50%;
       background-color: $gallery-bg;
       border: 1px solid $gallery-border;
       border-top: none;
       position: relative;
+
+      // MAIN IMAGE
+      .selectedImageContainer {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .selectedImage {
+          border-radius: 10px;
+          height: 80%;
+          width: 80%;
+          object-fit: cover;
+        }
+      }
 
       // BUTTONS
       .actions {
@@ -112,6 +132,12 @@
           align-items: center;
           margin-left: 5px;
           gap: 5px;
+
+          .isFavorite, .comparing {
+            border: 1px solid $productBox-hover;
+            color: $productBox-hover;
+            background-color: transparent;
+          }
         }
       }
 
@@ -121,7 +147,7 @@
         &:hover {
           border: 1px solid $productBox-hover;
           color: $productBox-hover;
-          background-color: $gallery-bg;
+          background-color: transparent;
         }
       }
 
@@ -159,6 +185,9 @@
             text-decoration: line-through;
             margin: 0;
           }
+          .noOldPrice {
+            display: none;
+          }
         }
 
         // RATING
@@ -173,7 +202,7 @@
           flex-direction: column;
           position: relative;
           overflow: hidden;
-          box-shadow: 0 4px 5px 0 $price-circle-bg;
+          box-shadow: -2px 4px 5px 0 $rating-box-shadow;
 
           &::before {
             content: "";
@@ -200,58 +229,81 @@
           .productName, .stars {
             margin: 0;
           }
+
+          .stars {
+            a {
+              text-decoration: none;
+              color: $productBox-stars;
+            }
+          }
         }
       }
     }
 
+  // ----------- SLIDER -----------
 
-    .carousel {
-      background: red;
-      flex: 1; // do zmiany
-    }
-
-
-    .tooltip {
+    .slider {
+      background: $slider-bg;
+      flex: 1;
       position: relative;
-      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid $gallery-border;
+      border-top: none;
 
-      .tooltiptext {
-        margin: 0;
-        visibility: hidden;
-        width: 120px;
-        background-color: $tooltip-bg;
-        color: $tooltip-text;
-        text-align: center;
-        padding: 5px 0;
-
-        position: absolute;
-        bottom: 0;
-        left: 125%;
-
-        opacity: 0;
-        transition: opacity 0.3s;
+      .sliderButton {
+        color: $slider-bg;
+        background-color: $slider-button-bg;
+        height: 80%;
+        display: flex;
+        align-items: center;
+        margin: 0 10px;
       }
 
-     .tooltiptext::after {
-        content: "";
-        position: absolute;
-        top: 35%;
-        left: -5px;
-        margin-left: -5px;
-        border-width: 5px;
-        border-style: solid;
-        border-color: transparent $gallery-category transparent transparent;
+      .sliderImages {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 70px;
+        gap: 10px;
+
+        .singleSliderImage {
+          height: 100%;
+          flex: 1;
+          position: relative;
+
+          &::after {
+            content: "";
+            top: 0;
+            left: 0;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-color: $slider-overlay;
+            opacity: 0.7;
+          }
+
+          &:hover::after {
+            opacity: 0;
+          }
+
+          &.activeThumbnail::after {
+            opacity: 0;
+          }
+
+          .image {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+          }
+
+        }
       }
     }
-
-    .tooltip:hover .tooltiptext {
-      visibility: visible;
-      opacity: 1;
-    }
-
   }
 
-// ---------- AD STYLES ----------
+// ---------- RIGHT BOX - AD STYLES ----------
 
   .ad {
     flex: 1;
@@ -302,4 +354,44 @@
         object-fit: cover;
       }
   }
+}
+
+// ----------- TOOLTIP -----------
+
+.tooltip {
+  position: relative;
+  width: 100%;
+
+  .tooltiptext {
+    margin: 0;
+    visibility: hidden;
+    width: 120px;
+    background-color: $tooltip-bg;
+    color: $tooltip-text;
+    text-align: center;
+    padding: 5px 0;
+
+    position: absolute;
+    bottom: 0;
+    left: 125%;
+
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+ .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 35%;
+    left: -5px;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent $gallery-category transparent transparent;
+  }
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
 }

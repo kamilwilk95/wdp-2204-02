@@ -1,5 +1,5 @@
 /* selectors */
-export const getAll = ({ galleryCategories }) => galleryCategories;
+export const getAllGaleryCategories = ({ galleryCategories }) => galleryCategories;
 
 /* reducer */
 const galleryReducer = (statePart = [], action) => {

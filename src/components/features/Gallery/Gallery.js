@@ -2,31 +2,83 @@ import React from 'react';
 import styles from './Gallery.module.scss';
 import clsx from 'clsx';
 // import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
-import { getAll } from '../../../redux/galleryRedux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useState } from 'react';
+
+import { toggleCardFavorite, toggleComparing, getAllProducts } from '../../../redux/productsRedux';
+import { getAllGaleryCategories } from '../../../redux/galleryRedux';
 
 import Button from '../../common/Button/Button';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faStar,
-  faEye,
-  faExchangeAlt,
-  faShoppingBasket,
-} from '@fortawesome/free-solid-svg-icons';
+import { faStar, faEye, faExchangeAlt, faShoppingBasket, faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 
 
 const Gallery = () => {
 
-  const galleryCategories = useSelector(getAll);
+  const dispatch = useDispatch();
+
+  const galleryCategories = useSelector(getAllGaleryCategories);
+  const allProducts = useSelector(getAllProducts);
+
+  const [activeGallery, setActiveGallery] = useState(galleryCategories[0]);
+  const activeProducts = allProducts.filter(product => product.galleryCategory === activeGallery.id);
+
+  const [imageIndex, setImageIndex] = useState(0); // selected image
+  const selectedProduct = activeProducts[imageIndex];
+
+  const [slideIndex, setSlideIndex] = useState(0); // row of displayed thumbnails
+  const slidesCount = Math.ceil(activeProducts.length / 6);
+
+  const handleCategoryChange = clickedCategory => {
+    const newCategoryProducts = allProducts.filter(product => product.galleryCategory === clickedCategory.id);
+    if (newCategoryProducts.length > 0) {
+      setActiveGallery(clickedCategory);
+      setSlideIndex(0);
+      setImageIndex(0);
+    }
+  };
+
+  const nextSlide = e => {
+    e.preventDefault();
+    setSlideIndex(slideIndex + 1);
+
+    if (slideIndex >= slidesCount - 1) {
+      setSlideIndex(0);
+    }
+  };
+
+  const prevSlide = e => {
+    e.preventDefault();
+    setSlideIndex(slideIndex - 1);
+
+    if (slideIndex <= 0) {
+      setSlideIndex(slidesCount - 1);
+    }
+  };
+
+  const favoriteClick = e => {
+    e.preventDefault();
+    dispatch(toggleCardFavorite(selectedProduct.id));
+  };
+
+  const toggleCompare = e => {
+    e.preventDefault();
+    dispatch(toggleComparing(selectedProduct.id));
+  };
+
 
   return (
     <div className={styles.root}>
       <div className='container'>
         <div className={styles.gallery}>
 
+          {/* ----------- GALLERY - SELECTION PART ----------- */}
+
           <div className={styles.galleryContainer}>
+
+            {/* ----------- CATEGORY BUTTONS ----------- */}
 
             <div className={styles.headingBar}>
               <div className={'col-auto ' + styles.heading}>
@@ -36,7 +88,10 @@ const Gallery = () => {
                 <ul>
                   {galleryCategories.map(item => (
                     <li key={item.id}>
-                      <a>
+                      <a
+                        className={clsx(item.id === activeGallery.id && styles.active)}
+                        onClick={() => handleCategoryChange(item)}
+                      >
                         {item.name}
                       </a>
                     </li>
@@ -45,22 +100,31 @@ const Gallery = () => {
               </div>
             </div>
 
+            {/* ----------- SELECTED PRODUCT PREVIEW ----------- */}
+
             <div className={styles.previewContainer}>
+              <div className={styles.selectedImageContainer}>
+                <img
+                  className={styles.selectedImage}
+                  alt={selectedProduct.name}
+                  src={`${process.env.PUBLIC_URL}/images/products/${selectedProduct.name}.jpg`}
+                />
+              </div>
               <div className={styles.actions}>
                 <div className={styles.outlines}>
-                  <Button variant='outline' className={clsx(styles.actionButton, styles.tooltip, styles.buttonFavorite)}>
+                  <Button variant='outline' onClick={favoriteClick} className={clsx(styles.actionButton, styles.tooltip, selectedProduct.isFavorite && styles.isFavorite)}>
                     <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
                     <p className={styles.tooltiptext}>Add to favorites</p>
                   </Button>
-                  <Button variant='outline' className={clsx(styles.actionButton, styles.tooltip, styles.buttonCompare)}>
+                  <Button variant='outline' onClick={toggleCompare} className={clsx(styles.actionButton, styles.tooltip, selectedProduct.comparing && styles.comparing)}>
                     <FontAwesomeIcon icon={faExchangeAlt}>Compare</FontAwesomeIcon>
                     <p className={styles.tooltiptext}>Add to compare</p>
                   </Button>
-                  <Button variant='outline' className={clsx(styles.actionButton, styles.tooltip, styles.buttonQuickView)}>
+                  <Button variant='outline' className={clsx(styles.actionButton, styles.tooltip)}>
                     <FontAwesomeIcon icon={faEye}>QuickView</FontAwesomeIcon>
                     <p className={styles.tooltiptext}>Quick view</p>
                   </Button>
-                  <Button variant='outline' className={clsx(styles.actionButton, styles.tooltip, styles.buttonCart)}>
+                  <Button variant='outline' className={clsx(styles.actionButton, styles.tooltip)}>
                     <FontAwesomeIcon icon={faShoppingBasket}>Cart</FontAwesomeIcon>
                     <p className={styles.tooltiptext}>Add to cart</p>
                   </Button>
@@ -69,22 +133,57 @@ const Gallery = () => {
 
               <div className={styles.productDetails}>
                 <div className={styles.priceCircle}>
-                  <p className={styles.newPrice}>$120.00</p>
-                  <p className={styles.oldPrice}>$160.00</p>
+                  <p className={styles.newPrice}>${selectedProduct.price}</p>
+                  <p className={clsx(styles.oldPrice, !selectedProduct.oldPrice && styles.noOldPrice)}>${selectedProduct.oldPrice}</p>
                 </div>
                 <div className={styles.ratingBox}>
-                  <p className={styles.productName}>Nazwa produktu</p>
-                  <p className={styles.stars}>GWIAZDKI</p>
+                  <p className={styles.productName}>{selectedProduct.name}</p>
+                  <div className={styles.stars}>
+                    {[1, 2, 3, 4, 5].map(i => (
+                      <a key={i} href='#'>
+                        {i <= selectedProduct.stars ? (
+                          <FontAwesomeIcon icon={faStar}>{i} stars</FontAwesomeIcon>
+                        ) : (
+                          <FontAwesomeIcon icon={farStar}>{i} stars</FontAwesomeIcon>
+                        )}
+                      </a>
+                    ))}
+                  </div>
                 </div>
               </div>
 
             </div>
 
-            <div className={styles.carousel}>
+            {/* ----------- SLIDER ----------- */}
+
+            <div className={styles.slider}>
+              <Button variant='outline' className={styles.sliderButton} onClick={prevSlide}>
+                <FontAwesomeIcon icon={faAngleLeft}></FontAwesomeIcon>
+              </Button>
+
+              <div className={styles.sliderImages}>
+                {activeProducts
+                  .slice(slideIndex * 6, (slideIndex + 1) * 6)
+                  .map(product => (
+                    <a key={product.id} className={clsx(styles.singleSliderImage, product.id === selectedProduct.id && styles.activeThumbnail)} onClick={() => setImageIndex(activeProducts.indexOf(product))}>
+                      <img
+                        className={styles.image}
+                        alt={product.name}
+                        src={`${process.env.PUBLIC_URL}/images/products/${product.name}.jpg`}
+                      />
+                    </a>
+                  ))}
+              </div>
+
+              <Button variant='outline' className={styles.sliderButton} onClick={nextSlide}>
+                <FontAwesomeIcon icon={faAngleRight}></FontAwesomeIcon>
+              </Button>
 
             </div>
+
           </div>
 
+          {/* ----------- ADVERT PART ----------- */}
 
           <div className={styles.ad}>
             <div className={styles.adContentContainer}>
