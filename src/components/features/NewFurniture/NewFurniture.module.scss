@@ -92,10 +92,22 @@
             &.active,
             &:hover {
               background-color: $furniture-hover;
+              @include hover-animation-background;
             }
           }
         }
       }
     }
   }
+}
+.fadeWrapper {
+  transition: 0.5s opacity ease-in;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+.fade-in {
+  opacity: 1;
 }

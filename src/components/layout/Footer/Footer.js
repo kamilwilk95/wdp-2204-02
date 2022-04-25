@@ -12,12 +12,14 @@ import {
   faPinterestP,
 } from '@fortawesome/free-brands-svg-icons';
 
+import clsx from 'clsx';
+
 const Footer = ({ children }) => (
   <footer className={styles.root}>
     <div className={styles.footerMenu}>
       <div className='container'>
         <div className='row'>
-          <div className='col'>
+          <div className={clsx('col', styles.column)}>
             <div className={styles.menuWrapper}>
               <h6>Information</h6>
               <ul>
@@ -36,7 +38,7 @@ const Footer = ({ children }) => (
               </ul>
             </div>
           </div>
-          <div className='col'>
+          <div className={clsx('col', styles.column)}>
             <div className={styles.menuWrapper}>
               <h6>My account</h6>
               <ul>
@@ -55,7 +57,7 @@ const Footer = ({ children }) => (
               </ul>
             </div>
           </div>
-          <div className='col'>
+          <div className={clsx('col', styles.column)}>
             <div className={styles.menuWrapper}>
               <h6>Information</h6>
               <ul>
@@ -74,7 +76,7 @@ const Footer = ({ children }) => (
               </ul>
             </div>
           </div>
-          <div className='col'>
+          <div className={clsx('col', styles.column)}>
             <div className={styles.menuWrapper}>
               <h6>Orders</h6>
               <ul>
@@ -92,15 +94,15 @@ const Footer = ({ children }) => (
                 </li>
               </ul>
             </div>
-            <img src='./images/cards.png' alt='Supported credit cards' />
+            <img className={styles.cardsImage} src='./images/cards.png' alt='Supported credit cards' />
           </div>
         </div>
       </div>
     </div>
     <div className={styles.bottomBar}>
       <div className='container'>
-        <div className='row align-items-center'>
-          <div className='col'></div>
+        <div className={clsx('row align-items-center', styles.bottomRow)}>
+          <div className={clsx('col', styles.placeholderElement)}></div>
           <div className={'col text-center ' + styles.copyright}>
             <p>©Copyright 2016 Bazar | All Rights Reserved</p>
           </div>

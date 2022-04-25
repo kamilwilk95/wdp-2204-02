@@ -73,6 +73,7 @@
 
     .content {
       color: $featureBox-hover;
+      @include hover-animation-text;
     }
   }
 }

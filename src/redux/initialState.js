@@ -27,6 +27,7 @@ const initialState = {
       comparing: false,
       isFavorite: false,
       galleryCategory: 'topSeller',
+      rating: 1,
     },
     {
       id: 'aenean-ru-bristique-2',
@@ -40,6 +41,7 @@ const initialState = {
       comparing: false,
       isFavorite: true,
       galleryCategory: 'topSeller',
+      rating: 0,
     },
     {
       id: 'aenean-ru-bristique-3',
@@ -53,6 +55,7 @@ const initialState = {
       comparing: false,
       isFavorite: false,
       galleryCategory: 'featured',
+      rating: 0,
     },
     {
       id: 'aenean-ru-bristique-4',
@@ -66,6 +69,7 @@ const initialState = {
       comparing: false,
       isFavorite: false,
       galleryCategory: 'featured',
+      rating: 0,
     },
     {
       id: 'aenean-ru-bristique-5',
@@ -79,6 +83,7 @@ const initialState = {
       comparing: false,
       isFavorite: true,
       galleryCategory: 'featured',
+      rating: 0,
     },
     {
       id: 'aenean-ru-bristique-6',
@@ -92,6 +97,7 @@ const initialState = {
       comparing: false,
       isFavorite: false,
       galleryCategory: 'featured',
+      rating: 0,
     },
     {
       id: 'aenean-ru-bristique-7',
@@ -105,6 +111,7 @@ const initialState = {
       comparing: false,
       isFavorite: false,
       galleryCategory: 'featured',
+      rating: 0,
     },
     {
       id: 'aenean-ru-bristique-8',
@@ -118,6 +125,7 @@ const initialState = {
       comparing: false,
       isFavorite: false,
       galleryCategory: 'featured',
+      rating: 0,
     },
     {
       id: 'aenean-ru-bristique-9',
@@ -131,6 +139,7 @@ const initialState = {
       comparing: false,
       isFavorite: false,
       galleryCategory: 'featured',
+      rating: 0,
     },
     {
       id: 'aenean-ru-bristique-10',
@@ -144,6 +153,7 @@ const initialState = {
       comparing: false,
       isFavorite: false,
       galleryCategory: 'saleOff',
+      rating: 0,
     },
     {
       id: 'aenean-ru-bristique-11',
@@ -157,6 +167,7 @@ const initialState = {
       comparing: false,
       isFavorite: false,
       galleryCategory: 'saleOff',
+      rating: 0,
     },
     {
       id: 'aenean-ru-bristique-12',
@@ -170,6 +181,7 @@ const initialState = {
       comparing: false,
       isFavorite: false,
       galleryCategory: 'featured',
+      rating: 0,
     },
     {
       id: 'aenean-ru-bristique-13',
@@ -183,6 +195,7 @@ const initialState = {
       comparing: false,
       isFavorite: false,
       galleryCategory: 'featured',
+      rating: 0,
     },
     {
       id: 'aenean-ru-bristique-14',
@@ -196,11 +209,12 @@ const initialState = {
       comparing: false,
       isFavorite: false,
       galleryCategory: 'featured',
+      rating: 0,
     },
     {
       id: 'aenean-ru-bristique-15',
       name: 'Aenean Ru Bristique 15',
-      category: 'bed',
+      category: 'chair',
       oldPrice: 40,
       price: 30,
       stars: 2,
@@ -209,11 +223,12 @@ const initialState = {
       comparing: false,
       isFavorite: false,
       galleryCategory: 'featured',
+      rating: 0,
     },
     {
       id: 'aenean-ru-bristique-16',
       name: 'Aenean Ru Bristique 16',
-      category: 'bed',
+      category: 'chair',
       oldPrice: 40,
       price: 30,
       stars: 2,
@@ -222,6 +237,7 @@ const initialState = {
       comparing: false,
       isFavorite: false,
       galleryCategory: 'featured',
+      rating: 0,
     },
     {
       id: 'aenean-ru-bristique-17',
@@ -234,7 +250,8 @@ const initialState = {
       newFurniture: true,
       comparing: false,
       isFavorite: false,
-      galleryCategory: 'topRated',
+      galleryCategory: 'featured',
+      rating: 0,
     },
     {
       id: 'aenean-ru-bristique-18',
@@ -248,11 +265,12 @@ const initialState = {
       comparing: false,
       isFavorite: false,
       galleryCategory: 'featured',
+      rating: 0,
     },
     {
       id: 'aenean-ru-bristique-19',
       name: 'Aenean Ru Bristique 19',
-      category: 'bed',
+      category: 'sofa',
       oldPrice: 40,
       price: 30,
       stars: 2,
@@ -261,11 +279,12 @@ const initialState = {
       comparing: false,
       isFavorite: true,
       galleryCategory: 'featured',
+      rating: 0,
     },
     {
       id: 'aenean-ru-bristique-20',
       name: 'Aenean Ru Bristique 20',
-      category: 'bed',
+      category: 'sofa',
       oldPrice: 40,
       price: 30,
       stars: 2,
@@ -274,6 +293,7 @@ const initialState = {
       comparing: false,
       isFavorite: false,
       galleryCategory: 'featured',
+      rating: 0,
     },
     {
       id: 'aenean-ru-bristique-21',
@@ -287,6 +307,7 @@ const initialState = {
       comparing: false,
       isFavorite: false,
       galleryCategory: 'featured',
+      rating: 0,
     },
     {
       id: 'aenean-ru-bristique-22',
@@ -300,11 +321,12 @@ const initialState = {
       comparing: false,
       isFavorite: false,
       galleryCategory: 'featured',
+      rating: 0,
     },
     {
       id: 'aenean-ru-bristique-23',
       name: 'Aenean Ru Bristique 23',
-      category: 'bed',
+      category: 'dining',
       oldPrice: 40,
       price: 30,
       stars: 2,
@@ -312,12 +334,13 @@ const initialState = {
       newFurniture: true,
       comparing: false,
       isFavorite: false,
-      galleryCategory: 'topRated',
+      galleryCategory: 'featured',
+      rating: 0,
     },
     {
       id: 'aenean-ru-bristique-24',
       name: 'Aenean Ru Bristique 24',
-      category: 'bed',
+      category: 'table',
       oldPrice: 40,
       price: 30,
       stars: 2,
@@ -325,7 +348,8 @@ const initialState = {
       newFurniture: true,
       comparing: false,
       isFavorite: false,
-      galleryCategory: 'topRated',
+      galleryCategory: 'featured',
+      rating: 0,
     },
   ],
   cart: {
