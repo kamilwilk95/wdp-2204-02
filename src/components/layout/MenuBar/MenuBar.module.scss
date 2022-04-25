@@ -5,12 +5,9 @@
   background-color: $menuBar-bg;
   justify-content: space-around;
   position: relative;
-  :global(.container) > :global(.row) {
-    //min-height: 84px;
-  }
 
-  .search_wrapper{
-    margin: 25px 0; 
+  .search_wrapper {
+    margin: 25px 0;
   }
 
   .menu {
@@ -57,46 +54,53 @@
     display: none;
   }
 
-  .mobile_navigation{
-    display: none;
-
-  }
-
-    @media (max-width: 767px) {
-  .icon_menu{
-  display: block;
-  }
-
-  .navigation{
+  .mobile_navigation {
     display: none;
   }
 
-  .mobile_navigation{
-    margin-top: 5px;
-    display: block;
-  }
-  }
-  @media (max-width: 494px){
-    .menu_mob{
-      top: 134px;
+  @include for-tablet {
+    .icon_menu {
+      display: block;
+    }
+
+    .navigation {
+      display: none;
+    }
+
+    .mobile_navigation {
+      margin-top: 5px;
+      display: block;
+    }
+
+    div > div {
+      flex-wrap: nowrap;
     }
   }
 }
 
-.menu_mob{
+.menu_mob {
   border: 1px solid #000;
   position: absolute;
-  top: 96px;
+  top: 100%;
   right: 0;
   z-index: 15;
   background-color: $menuBurger-bg;
   width: 100%;
   display: flex;
   flex-direction: column;
-  ul li{
+  ul li {
+    list-style: none;
     margin: 15px 0;
+    /* disable text selection highlighting */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /* ----------- */
   }
-  a{
+  a {
     color: $menuBurger-text;
     text-transform: uppercase;
     font-size: 12px;
@@ -110,7 +114,6 @@
     }
   }
 }
-
 
 /* menu icon styles */
 .icon_menu {
