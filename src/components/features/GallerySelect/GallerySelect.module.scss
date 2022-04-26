@@ -1,0 +1,340 @@
+@import "../../../styles/settings.scss";
+
+
+// ----------- LEFT BOX -----------
+
+.galleryContainer {
+  flex: 1;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+
+// ----------- HEADING + BUTTONS -----------
+
+  .headingBar {
+    position: relative;
+
+    // UNDERLINED HEADING
+    .heading {
+      position: relative;
+      padding: 0;
+      border-bottom: 4px solid $gallery-border;
+
+      h3 {
+        color: $gallery-hover;
+        text-transform: uppercase;
+        font-size: 20px;
+        line-height: 38px;
+        margin: 0;
+        letter-spacing: 1px;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 45px;
+        border-bottom: 4px solid $gallery-hover;
+      }
+    }
+
+    //BUTTON MENU
+    .menu {
+      text-align: center;
+      padding: 0;
+      margin-top: 30px;
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+
+        li {
+          display: inline-block;
+          margin: 0;
+          font-weight: 600;
+          flex: 1;
+
+          a {
+            color: $gallery-category;
+            text-transform: uppercase;
+            position: relative;
+            text-decoration: none;
+            font-size: 18px;
+            display: block;
+            line-height: 3;
+            border: 1px solid $gallery-border;
+
+            &.active,
+            &:hover {
+              color: $gallery-hover;
+              background-color: $gallery-bg;
+              border-bottom: 1px solid $gallery-bg;
+
+              &::before {
+                content: "";
+                position: absolute;
+                top: -1px;
+                left: 0;
+                width: 100%;
+                border-top: 4px solid $gallery-hover;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+// ----------- PRODUCT SECTION -----------
+
+  .previewContainer {
+    flex: 50%;
+    background-color: $gallery-bg;
+    border: 1px solid $gallery-border;
+    border-top: none;
+    position: relative;
+
+    // MAIN IMAGE
+    .selectedImageContainer {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .selectedImage {
+        border-radius: 10px;
+        height: 80%;
+        width: 80%;
+        object-fit: cover;
+      }
+    }
+
+    // BUTTONS
+    .actions {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      .outlines {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 5px;
+        gap: 5px;
+
+        .isFavorite, .comparing {
+          border: 1px solid $productBox-hover;
+          color: $productBox-hover;
+          background-color: transparent;
+        }
+      }
+    }
+
+    .actionButton {
+      position: relative;
+
+      &:hover {
+        border: 1px solid $productBox-hover;
+        color: $productBox-hover;
+        background-color: transparent;
+      }
+    }
+
+    // PRICE + RATING
+    .productDetails {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      bottom: 10%;
+      right: 0;
+
+      // PRICE
+      .priceCircle {
+        background-color: $price-circle-bg;
+        border-radius: 50%;
+        height: 100px;
+        width: 100px;
+        color: $price-cicrle-text;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        z-index: 1;
+        opacity: 0.9;
+
+        .newPrice {
+          font-size: 20px;
+          margin: 0;
+        }
+        .oldPrice {
+          font-size: 16px;
+          text-decoration: line-through;
+          margin: 0;
+        }
+        .noOldPrice {
+          display: none;
+        }
+      }
+
+      // RATING
+      .ratingBox {
+        width: 250px;
+        height: 100px;
+        background-color: $rating-box-bg;
+        margin-top: -20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+        overflow: hidden;
+        box-shadow: -2px 4px 5px 0 $rating-box-shadow;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: -20px;
+          left: -20px;
+          width: 40px;
+          height: 40px;
+          background-color: $tooltip-bg;
+          transform: rotate(45deg);
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -20px;
+          right: -20px;
+          width: 40px;
+          height: 40px;
+          background-color: $tooltip-bg;
+          transform: rotate(45deg);
+        }
+
+        .productName, .stars {
+          margin: 0;
+        }
+
+        .stars {
+          a {
+            text-decoration: none;
+            color: $productBox-stars;
+          }
+        }
+      }
+    }
+  }
+
+// ----------- SLIDER -----------
+
+  .slider {
+    background: $slider-bg;
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid $gallery-border;
+    border-top: none;
+
+    .sliderButton {
+      color: $slider-bg;
+      background-color: $slider-button-bg;
+      height: 80%;
+      display: flex;
+      align-items: center;
+      margin: 0 10px;
+    }
+
+    .sliderImages {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 70px;
+      gap: 10px;
+
+      .singleSliderImage {
+        height: 100%;
+        flex: 1;
+        position: relative;
+
+        &::after {
+          content: "";
+          top: 0;
+          left: 0;
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          background-color: $slider-overlay;
+          opacity: 0.7;
+        }
+
+        &:hover::after {
+          opacity: 0;
+        }
+
+        &.activeThumbnail::after {
+          opacity: 0;
+        }
+
+        .image {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+
+      }
+    }
+  }
+}
+
+// ----------- TOOLTIP -----------
+
+.tooltip {
+  position: relative;
+  width: 100%;
+
+  .tooltiptext {
+    margin: 0;
+    visibility: hidden;
+    width: 120px;
+    background-color: $tooltip-bg;
+    color: $tooltip-text;
+    text-align: center;
+    padding: 5px 0;
+
+    position: absolute;
+    bottom: 0;
+    left: 125%;
+
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+ .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 35%;
+    left: -5px;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent $gallery-category transparent transparent;
+  }
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}

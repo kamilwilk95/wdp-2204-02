@@ -26,7 +26,7 @@ const initialState = {
       newFurniture: true,
       comparing: false,
       isFavorite: false,
-      galleryCategory: 'topSeller',
+      galleryTag: 'topSeller',
       rating: 1,
     },
     {
@@ -40,7 +40,7 @@ const initialState = {
       newFurniture: true,
       comparing: false,
       isFavorite: true,
-      galleryCategory: 'topSeller',
+      galleryTag: 'topSeller',
       rating: 0,
     },
     {
@@ -54,7 +54,7 @@ const initialState = {
       newFurniture: true,
       comparing: false,
       isFavorite: false,
-      galleryCategory: 'featured',
+      galleryTag: 'featured',
       rating: 0,
     },
     {
@@ -68,7 +68,7 @@ const initialState = {
       newFurniture: true,
       comparing: false,
       isFavorite: false,
-      galleryCategory: 'featured',
+      galleryTag: 'featured',
       rating: 0,
     },
     {
@@ -82,7 +82,7 @@ const initialState = {
       newFurniture: true,
       comparing: false,
       isFavorite: true,
-      galleryCategory: 'featured',
+      galleryTag: 'featured',
       rating: 0,
     },
     {
@@ -96,7 +96,7 @@ const initialState = {
       newFurniture: true,
       comparing: false,
       isFavorite: false,
-      galleryCategory: 'featured',
+      galleryTag: 'featured',
       rating: 0,
     },
     {
@@ -110,7 +110,7 @@ const initialState = {
       newFurniture: true,
       comparing: false,
       isFavorite: false,
-      galleryCategory: 'featured',
+      galleryTag: 'featured',
       rating: 0,
     },
     {
@@ -124,7 +124,7 @@ const initialState = {
       newFurniture: true,
       comparing: false,
       isFavorite: false,
-      galleryCategory: 'featured',
+      galleryTag: 'featured',
       rating: 0,
     },
     {
@@ -138,7 +138,7 @@ const initialState = {
       newFurniture: true,
       comparing: false,
       isFavorite: false,
-      galleryCategory: 'featured',
+      galleryTag: 'featured',
       rating: 0,
     },
     {
@@ -152,7 +152,7 @@ const initialState = {
       newFurniture: true,
       comparing: false,
       isFavorite: false,
-      galleryCategory: 'saleOff',
+      galleryTag: 'saleOff',
       rating: 0,
     },
     {
@@ -166,7 +166,7 @@ const initialState = {
       newFurniture: true,
       comparing: false,
       isFavorite: false,
-      galleryCategory: 'saleOff',
+      galleryTag: 'saleOff',
       rating: 0,
     },
     {
@@ -180,7 +180,7 @@ const initialState = {
       newFurniture: true,
       comparing: false,
       isFavorite: false,
-      galleryCategory: 'featured',
+      galleryTag: 'featured',
       rating: 0,
     },
     {
@@ -194,7 +194,7 @@ const initialState = {
       newFurniture: true,
       comparing: false,
       isFavorite: false,
-      galleryCategory: 'featured',
+      galleryTag: 'featured',
       rating: 0,
     },
     {
@@ -208,7 +208,7 @@ const initialState = {
       newFurniture: true,
       comparing: false,
       isFavorite: false,
-      galleryCategory: 'featured',
+      galleryTag: 'featured',
       rating: 0,
     },
     {
@@ -222,7 +222,7 @@ const initialState = {
       newFurniture: true,
       comparing: false,
       isFavorite: false,
-      galleryCategory: 'featured',
+      galleryTag: 'featured',
       rating: 0,
     },
     {
@@ -236,7 +236,7 @@ const initialState = {
       newFurniture: true,
       comparing: false,
       isFavorite: false,
-      galleryCategory: 'featured',
+      galleryTag: 'featured',
       rating: 0,
     },
     {
@@ -250,7 +250,7 @@ const initialState = {
       newFurniture: true,
       comparing: false,
       isFavorite: false,
-      galleryCategory: 'featured',
+      galleryTag: 'featured',
       rating: 0,
     },
     {
@@ -264,7 +264,7 @@ const initialState = {
       newFurniture: true,
       comparing: false,
       isFavorite: false,
-      galleryCategory: 'featured',
+      galleryTag: 'featured',
       rating: 0,
     },
     {
@@ -278,7 +278,7 @@ const initialState = {
       newFurniture: true,
       comparing: false,
       isFavorite: true,
-      galleryCategory: 'featured',
+      galleryTag: 'featured',
       rating: 0,
     },
     {
@@ -292,7 +292,7 @@ const initialState = {
       newFurniture: true,
       comparing: false,
       isFavorite: false,
-      galleryCategory: 'featured',
+      galleryTag: 'featured',
       rating: 0,
     },
     {
@@ -306,7 +306,7 @@ const initialState = {
       newFurniture: true,
       comparing: false,
       isFavorite: false,
-      galleryCategory: 'featured',
+      galleryTag: 'featured',
       rating: 0,
     },
     {
@@ -320,7 +320,7 @@ const initialState = {
       newFurniture: true,
       comparing: false,
       isFavorite: false,
-      galleryCategory: 'featured',
+      galleryTag: 'featured',
       rating: 0,
     },
     {
@@ -334,7 +334,7 @@ const initialState = {
       newFurniture: true,
       comparing: false,
       isFavorite: false,
-      galleryCategory: 'featured',
+      galleryTag: 'featured',
       rating: 0,
     },
     {
@@ -348,7 +348,7 @@ const initialState = {
       newFurniture: true,
       comparing: false,
       isFavorite: false,
-      galleryCategory: 'featured',
+      galleryTag: 'featured',
       rating: 0,
     },
   ],
