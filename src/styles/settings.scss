@@ -68,6 +68,7 @@ $productBox-sale-box: $darkGrayTwo;
 $productBox-stars: $darkGrayOne;
 $productBox-hover: $darkOrange;
 $productBox-old-price: $grayOne;
+$productBox-text: $white;
 
 // new furniture
 $furniture-border: $lightGrayFour;
@@ -86,9 +87,11 @@ $search-hover: $darkOrange;
 $promoted-bg: $darkGrayOne;
 $promoted-light-bg: $white;
 $promoted-text: $white;
+$promoted-text-hover: $darkOrange;
 $promoted-hover: $darkOrange;
 $promoted-stars: $darkGrayOne;
 $promoted-old-price: $grayOne;
+$promoted-border: $lightGrayThree;
 
 // company claim (header)
 $header-bg: $darkGrayThree;
