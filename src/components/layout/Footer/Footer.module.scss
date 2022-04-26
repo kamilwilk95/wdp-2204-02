@@ -24,6 +24,7 @@
 
             &:hover {
               color: $footer-primaty-text;
+              @include hover-animation-text;
             }
           }
         }
@@ -73,6 +74,7 @@
 
             &:hover {
               color: $footer-hover;
+              @include hover-animation-text;
             }
           }
         }

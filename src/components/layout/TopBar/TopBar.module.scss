@@ -19,6 +19,7 @@
         &:hover {
           color: $topBar-hover;
           text-decoration: none;
+          @include hover-animation-text;
         }
       }
     }
@@ -40,3 +41,34 @@
     }
   }
 }
+
+@include for-tablet {
+
+  .text{
+    font-size: 0;
+  }
+  
+  .root{
+    .topOptions {
+      flex-grow: 2;
+  
+      ul li {
+        margin-right: 0.4rem;
+      }
+  
+      .icon {
+        margin-left: 5px;
+      }
+    }
+
+    .topMenu ul li {
+      margin-left: 0.5rem;
+  
+      .icon {
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+ 

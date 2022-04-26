@@ -138,4 +138,7 @@
     background-color: $productBox-bg;
     color: $productBox-hover;
   }
+  .btn:hover{
+    @include hover-animation-background;
+  }
 }
