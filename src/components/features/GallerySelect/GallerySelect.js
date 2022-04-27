@@ -10,6 +10,7 @@ import { getAllGaleryCategories } from '../../../redux/galleryRedux';
 
 import Button from '../../common/Button/Button';
 import ProductRating from '../ProductRating/ProductRating';
+import Tooltip from '../Tooltip/Tooltip';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faEye, faExchangeAlt, faShoppingBasket, faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
@@ -105,21 +106,21 @@ const GallerySelect = () => {
         </div>
         <div className={styles.actions}>
           <div className={styles.outlines}>
-            <Button variant='outline' onClick={favoriteClick} className={clsx(styles.actionButton, styles.tooltip, selectedProduct.isFavorite && styles.isFavorite)}>
+            <Button variant='outline' onClick={favoriteClick} className={clsx(styles.actionButton, selectedProduct.isFavorite && styles.isFavorite)}>
               <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
-              <p className={styles.tooltiptext}>Add to favorites</p>
+              <Tooltip text='Add to favorites' />
             </Button>
-            <Button variant='outline' onClick={toggleCompare} className={clsx(styles.actionButton, styles.tooltip, selectedProduct.comparing && styles.comparing)}>
+            <Button variant='outline' onClick={toggleCompare} className={clsx(styles.actionButton, selectedProduct.comparing && styles.comparing)}>
               <FontAwesomeIcon icon={faExchangeAlt}>Compare</FontAwesomeIcon>
-              <p className={styles.tooltiptext}>Add to compare</p>
+              <Tooltip text='Add to compare' />
             </Button>
-            <Button variant='outline' className={clsx(styles.actionButton, styles.tooltip)}>
+            <Button variant='outline' className={clsx(styles.actionButton)}>
               <FontAwesomeIcon icon={faEye}>QuickView</FontAwesomeIcon>
-              <p className={styles.tooltiptext}>Quick view</p>
+              <Tooltip text='Quick view' />
             </Button>
-            <Button variant='outline' className={clsx(styles.actionButton, styles.tooltip)}>
+            <Button variant='outline' className={clsx(styles.actionButton)}>
               <FontAwesomeIcon icon={faShoppingBasket}>Cart</FontAwesomeIcon>
-              <p className={styles.tooltiptext}>Add to cart</p>
+              <Tooltip text='Add to cart' />
             </Button>
           </div>
         </div>
