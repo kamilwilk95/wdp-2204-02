@@ -3,6 +3,39 @@
 .root {
   padding: 5rem 0;
   a {
-    text-decoration: none; 
+    text-decoration: none;
    }
+}
+
+@include for-tablet {
+  .title {
+    font-size: 16px;
+  }
+  .subtitle {
+    font-size: 15px;
+  }
+}
+@include for-mobile-l {
+  .title {
+    font-size: 14px;
+  }
+  .subtitle {
+    font-size: 13px;
+  }
+}
+@include for-mobile-m {
+  .title {
+    font-size: 11px;
+  }
+  .subtitle {
+    font-size: 10px;
+  }
+}
+@include for-mobile-s {
+  .title {
+    font-size: 9.5px;
+  }
+  .subtitle {
+    font-size: 8.5px;
+  }
 }

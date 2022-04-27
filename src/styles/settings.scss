@@ -32,6 +32,17 @@ $darkGrayTwo: #292929;
 $darkGrayThree: #363636;
 $darkGrayFour: #434343;
 
+
+$form-border-color: #292929;
+
+@mixin hover-animation-background {
+  transition: all 0.25s;
+}
+
+@mixin hover-animation-text {
+  transition: all 1.25s;
+}
+
 $grayOne: #a5a5a5;
 $grayTwo: #a9a9a9;
 $grayThree: #b6b6b6;
@@ -120,3 +131,4 @@ $promotions-secondary-text: $darkOrange;
 $promotions-shadow-bg: $darkGrayOne;
 $promotions-primary-bg: #E9EDF7;
 $promotions-secondary-bg: #FAF2F8;
+
