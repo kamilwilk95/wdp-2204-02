@@ -20,14 +20,14 @@ class NewFurniture extends React.Component {
     const timeout = setTimeout(() => {
       this.setState({
         [statePart]: newCategory,
-        fadeTransition : null,
-        fadeState : 'fade-in',
+        fadeTransition: null,
+        fadeState: 'fade-in',
       });
     }, 500);
     clearTimeout(this.state.fadeTransition);
     this.setState({
-      fadeState : 'fade-out',
-      fadeTransition : timeout,
+      fadeState: 'fade-out',
+      fadeTransition: timeout,
     });
   }
 
@@ -35,7 +35,7 @@ class NewFurniture extends React.Component {
     this.handleFade('activeCategory', newCategory);
   }
 
-  handlePageChange(newPage){
+  handlePageChange(newPage) {
     this.handleFade('activePage', newPage);
   }
 
@@ -90,10 +90,10 @@ class NewFurniture extends React.Component {
           <div className='container'>
             <div className={styles.panelBar}>
               <div className='row no-gutters align-items-end'>
-                <div className={'col-auto ' + styles.heading}>
+                <div className={'col-md-auto col-sm-12 col-12 ' + styles.heading}>
                   <h3>New furniture</h3>
                 </div>
-                <div className={'col ' + styles.menu}>
+                <div className={'col-md col-sm-12 col-12 ' + styles.menu}>
                   <ul>
                     {categories.map(item => (
                       <li key={item.id}>
@@ -107,16 +107,25 @@ class NewFurniture extends React.Component {
                     ))}
                   </ul>
                 </div>
-                <div className={'col-auto ' + styles.dots}>
+                <div className={'col-md-auto col-sm-auto col-auto ' + styles.dots}>
                   <ul>{dots}</ul>
                 </div>
               </div>
             </div>
-            <div className={clsx('row', styles.fadeWrapper, styles[this.state.fadeState])}>
+            <div
+              className={clsx('row', styles.fadeWrapper, styles[this.state.fadeState])}
+            >
               {categoryProducts
                 .slice(activePage * 8, (activePage + 1) * 8)
                 .map(item => (
-                  <div key={item.id} className={clsx('col-3', styles.fadeWrapper, styles[this.state.fadeState])}>
+                  <div
+                    key={item.id}
+                    className={clsx(
+                      'col-lg-3 col-md-4 col-sm-6 col-12',
+                      styles.fadeWrapper,
+                      styles[this.state.fadeState]
+                    )}
+                  >
                     <ProductBox {...item} />
                   </div>
                 ))}
