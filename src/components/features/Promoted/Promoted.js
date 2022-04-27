@@ -5,7 +5,6 @@ import clsx from 'clsx';
 
 import styles from './Promoted.module.scss';
 
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faExchangeAlt, faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
 import { faEye, faHeart } from '@fortawesome/free-regular-svg-icons';
@@ -15,14 +14,14 @@ import Button from '../../common/Button/Button';
 
 const Promoted = () => {
 
-  const products = useSelector (state => getAll (state));
+  const products = useSelector(state => getAll(state));
 
   return (
 
     <div className={styles.root}>
       <div className='container'>
         <div className='row'>
-          <div className={clsx('col-4',  styles.leftSide)}>
+          <div className={clsx('col-4', styles.leftSide)}>
             <div className={styles.heading}>
               <div className={clsx(styles.hotDeals, 'col' )}>
                 <h4>HOT DEALS</h4>
@@ -123,7 +122,7 @@ const Promoted = () => {
               </div>
             </div>
           </div>
-          <div className={clsx('col-8',  styles.rightSide)}>
+          <div className={clsx('col-8', styles.rightSide)}>
             <div className={styles.photoBoxRight}>
               <img
                 className={styles.imageRight}
