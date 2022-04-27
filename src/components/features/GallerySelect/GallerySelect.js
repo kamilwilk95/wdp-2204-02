@@ -9,6 +9,7 @@ import { toggleCardFavorite, toggleComparing, getAllProducts } from '../../../re
 import { getAllGaleryCategories } from '../../../redux/galleryRedux';
 
 import Button from '../../common/Button/Button';
+import ProductRating from '../ProductRating/ProductRating';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faEye, faExchangeAlt, faShoppingBasket, faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
@@ -130,17 +131,7 @@ const GallerySelect = () => {
           </div>
           <div className={styles.ratingBox}>
             <p className={styles.productName}>{selectedProduct.name}</p>
-            <div className={styles.stars}>
-              {[1, 2, 3, 4, 5].map(i => (
-                <a key={i} href='#'>
-                  {i <= selectedProduct.stars ? (
-                    <FontAwesomeIcon icon={faStar}>{i} stars</FontAwesomeIcon>
-                  ) : (
-                    <FontAwesomeIcon icon={farStar}>{i} stars</FontAwesomeIcon>
-                  )}
-                </a>
-              ))}
-            </div>
+            <ProductRating id={selectedProduct.id} stars={selectedProduct.stars} rating={selectedProduct.rating}/>
           </div>
         </div>
 
