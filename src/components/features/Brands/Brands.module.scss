@@ -1,0 +1,16 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  margin: 20px 0;
+  .brandsWrapper {
+    border-top: 1px solid $featureBox-border;
+    border-bottom: 1px solid $featureBox-border;
+    .brandImg {
+      border: 1px solid $featureBox-border;
+      margin: 0px 2px;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+ }
