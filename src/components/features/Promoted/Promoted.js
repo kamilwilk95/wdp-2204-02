@@ -23,19 +23,19 @@ const Promoted = () => {
         <div className='row'>
           <div className={clsx('col-4', styles.leftSide)}>
             <div className={styles.heading}>
-              <div className={clsx(styles.hotDeals, 'col' )}>
+              <div className={clsx(styles.hotDeals, 'col')}>
                 <h4>HOT DEALS</h4>
               </div>
               <div className={clsx('col-4', styles.dots)}>
                 <ul>
                   <li>
-                    <a className={styles.active} href='#' > </a>
+                    <a className={styles.active} href='#'> </a>
                   </li>
                   <li>
-                    <a href='#' > </a>
+                    <a href='#'> </a>
                   </li>
                   <li>
-                    <a href='#' > </a>
+                    <a href='#'> </a>
                   </li>
                 </ul>
               </div>
@@ -131,7 +131,7 @@ const Promoted = () => {
               />
               <div className={styles.shadowImage}>
                 <div className={styles.slogan}>
-                INDOOR <span>FURNITURE</span>
+                  INDOOR <span>FURNITURE</span>
                 </div>
                 <div className={styles.sloganSubtitle}>
                   <p>SAVE UP TO 50% OF ALL FURNITURE</p>
