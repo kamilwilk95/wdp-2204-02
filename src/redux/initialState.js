@@ -327,52 +327,52 @@ const initialState = {
     {
       id: 'brand-1',
       name: 'brand 1',
-      image: '../../public/images/brands/brand-1.png',
+      image: '/images/brands/brand-1.png',
     },
     {
       id: 'brand-2',
       name: 'brand 2',
-      image: '../../public/images/brands/brand-2.png',
+      image: '/images/brands/brand-2.png',
     },
     {
       id: 'brand-3',
       name: 'brand 3',
-      image: '../../public/images/brands/brand-3.png',
+      image: '/images/brands/brand-3.png',
     },
     {
       id: 'brand-4',
       name: 'brand 4',
-      image: '../../public/images/brands/brand-4.png',
+      image: '/images/brands/brand-4.png',
     },
     {
       id: 'brand-5',
       name: 'brand 5',
-      image: '../../public/images/brands/brand-5.png',
+      image: '/images/brands/brand-5.png',
     },
     {
       id: 'brand-6',
       name: 'brand 6',
-      image: '../../public/images/brands/brand-6.png',
+      image: '/images/brands/brand-6.png',
     },
     {
       id: 'brand-7',
       name: 'brand 7',
-      image: '../../public/images/brands/brand-7.png',
+      image: '/images/brands/brand-7.png',
     },
     {
       id: 'brand-8',
       name: 'brand 8',
-      image: '../../public/images/brands/brand-8.png',
+      image: '/images/brands/brand-8.png',
     },
     {
       id: 'brand-9',
       name: 'brand 9',
-      image: '../../public/images/brands/brand-9.png',
+      image: '/images/brands/brand-9.png',
     },
     {
       id: 'brand-10',
       name: 'brand 10',
-      image: '../../public/images/brands/brand-10.png',
+      image: '/images/brands/brand-10.png',
     },
   ],
 };
