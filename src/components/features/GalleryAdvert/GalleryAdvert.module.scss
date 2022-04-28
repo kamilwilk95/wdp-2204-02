@@ -1,0 +1,51 @@
+@import "../../../styles/settings.scss";
+
+.ad {
+  flex: 1;
+  position: relative;
+
+  .adContentContainer {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+
+    .adText {
+      margin: 0;
+      line-height: 50px;
+      font-weight: 500;
+    }
+    .textOne {
+      font-size: 20px;
+    }
+    .textTwo {
+      font-size: 48px;
+      color: $ad-button;
+    }
+    .textThree {
+      font-size: 48px;
+      color: $ad-text;
+    }
+
+    .adButton {
+      padding: 15px 30px;
+      background-color: $ad-button;
+      border-radius: 5px;
+      margin-top: 15px;
+    }
+  }
+
+  .imageContainer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+    .image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+}
