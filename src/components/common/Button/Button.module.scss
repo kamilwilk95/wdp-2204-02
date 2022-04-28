@@ -27,7 +27,13 @@
   font-weight: 400;
 }
 
-
+.slide {
+  @extend .main;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 10px;
+  line-height: 120px;
+}
 
 .outline {
   display: inline-block;
