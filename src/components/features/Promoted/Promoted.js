@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { getAll } from '../../../redux/productsRedux';
+import { getAllProducts } from '../../../redux/productsRedux';
 import clsx from 'clsx';
 
 import styles from './Promoted.module.scss';
@@ -14,7 +14,7 @@ import Button from '../../common/Button/Button';
 
 const Promoted = () => {
 
-  const products = useSelector(state => getAll(state));
+  const products = useSelector(state => getAllProducts(state));
 
   return (
 
