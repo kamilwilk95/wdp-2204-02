@@ -60,6 +60,8 @@ $lightGrayFive: #f4f5f7;
 
 // button
 $button-bg: $darkGrayOne;
+$button-light-bg: $white;
+$button-light-text: $darkGrayOne;
 $button-text: $white;
 $button-hover: $darkOrange;
 
@@ -80,6 +82,7 @@ $productBox-sale-box: $darkGrayTwo;
 $productBox-stars: $darkGrayOne;
 $productBox-hover: $darkOrange;
 $productBox-old-price: $grayOne;
+$productBox-text: $white;
 
 // new furniture
 $furniture-border: $lightGrayFour;
@@ -93,6 +96,16 @@ $search-border: $darkGrayTwo;
 $search-bg: $white;
 $search-text: $darkGrayOne;
 $search-hover: $darkOrange;
+
+// promoted
+$promoted-bg: $darkGrayOne;
+$promoted-light-bg: $white;
+$promoted-text: $white;
+$promoted-text-hover: $darkOrange;
+$promoted-hover: $darkOrange;
+$promoted-stars: $darkGrayOne;
+$promoted-old-price: $grayOne;
+$promoted-border: $lightGrayThree;
 
 // company claim (header)
 $header-bg: $darkGrayThree;
