@@ -10,6 +10,7 @@ import {
 
 import styles from './FeatureBoxes.module.scss';
 import FeatureBox from '../../common/FeatureBox/FeatureBox';
+import Promotions from '../Promotions/Promotions';
 
 const FeatureBoxes = () => (
   <div className={styles.root}>
@@ -41,6 +42,7 @@ const FeatureBoxes = () => (
         </div>
       </div>
     </div>
+    <Promotions />
   </div>
 );
 
