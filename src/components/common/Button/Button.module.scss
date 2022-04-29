@@ -49,6 +49,14 @@
   text-align: center;
 }
 
+.slide {
+  @extend .main;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 10px;
+  line-height: 120px;
+}
+
 .outline {
   display: inline-block;
   padding: 5px 10px;

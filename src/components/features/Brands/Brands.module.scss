@@ -1,0 +1,33 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  margin: 35px 0;
+
+  .brandsWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid $brands-border;
+    border-bottom: 1px solid $brands-border;
+
+    .imgWrapper {
+      display: flex;
+      align-items: center;
+      height: 80px;
+      gap: 25px;
+
+      .imgBox {
+        height: 100%;
+        width: 145px;
+
+        .brandImg {
+          border: 1px solid $brands-border;
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
