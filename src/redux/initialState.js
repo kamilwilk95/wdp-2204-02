@@ -323,6 +323,32 @@ const initialState = {
   cart: {
     products: [],
   },
+  feedback: [
+    {
+      id: 1,
+      comment:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tincidunt sodales augue ac iaculis. Vestibulum egestas vestibulum nunc, nec tristique massa auctor ut.',
+      name: 'John Doe',
+      photo: '/images/feedback/John_Doe.jpg',
+      description: 'Client',
+    },
+    {
+      id: 2,
+      comment:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tincidunt sodales augue ac iaculis. Vestibulum egestas vestibulum nunc, nec tristique massa auctor ut.',
+      name: 'Emily Smith',
+      photo: '/images/feedback/Emily_Smith.jpg',
+      description: 'Client',
+    },
+    {
+      id: 3,
+      comment:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tincidunt sodales augue ac iaculis. Vestibulum egestas vestibulum nunc, nec tristique massa auctor ut.',
+      name: 'George Brown',
+      photo: '/images/feedback/George_Brown.jpg',
+      description: 'Client',
+    },
+  ],
 };
 
 export default initialState;
