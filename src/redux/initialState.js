@@ -335,7 +335,7 @@ const initialState = {
     {
       id: 2,
       comment:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tincidunt sodales augue ac iaculis. Vestibulum egestas vestibulum nunc, nec tristique massa auctor ut.',
+        'Cras egestas nunc a diam blandit, quis efficitur mi malesuada. Cras auctor lectus vel consectetur aliquet. Pellentesque efficitur consequat mattis. Morbi aliquet hendrerit ligula.',
       name: 'Emily Smith',
       photo: '/images/feedback/Emily_Smith.jpg',
       description: 'Client',
@@ -343,7 +343,7 @@ const initialState = {
     {
       id: 3,
       comment:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tincidunt sodales augue ac iaculis. Vestibulum egestas vestibulum nunc, nec tristique massa auctor ut.',
+        'Quisque finibus orci eget nulla ullamcorper ullamcorper. Nam sit amet diam vulputate, mattis orci sit amet, ultricies ligula. Vivamus consectetur risus eu tellus efficitur congue. Cras nec urna nibh. Maecenas viverra blandit cursus.',
       name: 'George Brown',
       photo: '/images/feedback/George_Brown.jpg',
       description: 'Client',

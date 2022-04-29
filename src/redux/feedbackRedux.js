@@ -1,5 +1,5 @@
 /* selectors */
-export const getAll = ({ feedback }) => feedback;
+export const getAllFeedback = ({ feedback }) => feedback;
 
 /* reducer */
 export default function reducer(statePart = [], action = {}) {

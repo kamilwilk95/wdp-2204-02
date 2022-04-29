@@ -2,12 +2,12 @@ import React from 'react';
 import styles from './Feedback.module.scss';
 
 import { useSelector } from 'react-redux';
-import { getAll } from '../../../redux/feedbackRedux';
+import { getAllFeedback } from '../../../redux/feedbackRedux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuoteRight } from '@fortawesome/free-solid-svg-icons';
 
 const Feedback = () => {
-  const feedback = useSelector(getAll);
+  const feedback = useSelector(getAllFeedback);
 
   return (
     <div className={styles.root}>
