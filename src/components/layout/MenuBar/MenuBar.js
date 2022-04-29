@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import MobileNavigation from './MobileNavigation';
+import Navigation from './Navigation';
 import ProductSearch from '../../features/ProductSearch/ProductSearch';
 
 import styles from './MenuBar.module.scss';
@@ -8,37 +9,12 @@ import styles from './MenuBar.module.scss';
 const MenuBar = ({ children }) => (
   <div className={styles.root}>
     <div className='container'>
-      <div className='row align-items-center'>
-        <div className='col'>
+      <div className='row align-items-center  flex-wrap-reverse '>
+        <div className={'col ' + styles.search_wrapper}>
           <ProductSearch />
         </div>
-        <div className={'col-auto ' + styles.menu}>
-          <ul>
-            <li>
-              <a href='#' className={styles.active}>
-                Home
-              </a>
-            </li>
-            <li>
-              <a href='#'>Furniture</a>
-            </li>
-            <li>
-              <a href='#'>Chair</a>
-            </li>
-            <li>
-              <a href='#'>Table</a>
-            </li>
-            <li>
-              <a href='#'>Sofa</a>
-            </li>
-            <li>
-              <a href='#'>Bedroom</a>
-            </li>
-            <li>
-              <a href='#'>Blog</a>
-            </li>
-          </ul>
-        </div>
+        <Navigation className='col-auto ' />
+        <MobileNavigation className='col-auto flex-nowrap' />
       </div>
     </div>
   </div>

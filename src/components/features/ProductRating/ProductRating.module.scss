@@ -2,6 +2,10 @@
 
 .wrapper{
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .wrapper:hover{
@@ -21,7 +25,7 @@
   }
 }
 
-.rate { 
+.rate {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -30,21 +34,9 @@
   a {
     text-decoration: none;
     color: $productBox-hover
-  }   
+  }
 }
- 
+
 .active{
   visibility: visible;
 }
-
-
-
-
-
-
-
-
-
-
-
-  

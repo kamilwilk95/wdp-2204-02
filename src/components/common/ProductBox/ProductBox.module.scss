@@ -129,14 +129,14 @@
 
   .outlines .buttonFavorite:hover, .isFavorite {
     border: 1px solid $productBox-hover;
-    background-color: $productBox-hover;
-    color: $productBox-bg;
+    background-color: $productBox-bg;
+    color: $productBox-hover;
   }
 
   .buttonCompare:hover, .comparing {
     border: 1px solid $productBox-hover;
-    background-color: $productBox-hover;
-    color: #ffffff;
+    background-color: $productBox-bg;
+    color: $productBox-hover;
   }
   .btn:hover{
     @include hover-animation-background;

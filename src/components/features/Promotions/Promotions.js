@@ -1,12 +1,12 @@
 import React from 'react';
 import clsx from 'clsx';
 import { useSelector } from 'react-redux';
-import { getAll } from '../../../redux/productsRedux';
+import { getAllProducts } from '../../../redux/productsRedux';
 
 import styles from './Promotions.module.scss';
 
 const Promotions = () => {
-  const products = useSelector(state => getAll(state));
+  const products = useSelector(state => getAllProducts(state));
 
   return (
     <div className={styles.root}>
@@ -18,12 +18,12 @@ const Promotions = () => {
               alt={`${products[1].name}`}
               src={`${process.env.PUBLIC_URL}/images/products/${products[1].name}.jpg`}
             />
-            <div className={styles.title_left_box}>
+            <div className={styles.titleLeftBox}>
               GUEST ROOM
               <br />
-              <span className={styles.title_left_box_3rd_word}>SOFA</span>
+              <span className={styles.leftBoxWord}>SOFA</span>
               <br />
-              <span className={styles.title_left_box_percent}>-20%</span>
+              <span className={styles.percent}>-20%</span>
             </div>
           </div>
 
@@ -36,14 +36,14 @@ const Promotions = () => {
                   src={`${process.env.PUBLIC_URL}/images/products/${products[0].name}.jpg`}
                 />
               </div>
-              <div className={clsx('col-4', styles.title_right_box_top)}>
+              <div className={clsx('col-4', styles.titleRightBoxTop)}>
                 <p>
-                  <span className={styles.title_box_top_1st_word}>OFFICE</span> CHAIR{' '}
+                  <span className={styles.topFirstWord}>OFFICE</span> CHAIR{' '}
                   <br />
-                  <span className={styles.title_box_top_3rd_word}>COLLECTION</span>
+                  <span className={styles.topThirdWord}>COLLECTION</span>
                   <br />
                   <span
-                    className={styles.title_box_top_price}
+                    className={styles.price}
                   >{`$${products[0].price}`}</span>
                 </p>
               </div>
@@ -64,12 +64,12 @@ const Promotions = () => {
                   src={`${process.env.PUBLIC_URL}/images/products/${products[5].name}.jpg`}
                 />
               </div>
-              <div className={clsx('col-6', styles.title_right_box_bottom)}>
+              <div className={clsx('col-6', styles.titleRightBoxBottom)}>
                 <p>
-                  <span className={styles.title_box_bottom_1st_word}>SPECIAL</span>{' '}
+                  <span className={styles.bottomFirstWord}>SPECIAL</span>{' '}
                   COLLECTION
                   <br />
-                  <span className={styles.bottom_subtitle}>
+                  <span className={styles.subtitle}>
                     SAVE UP 45% OF FURNITURE
                   </span>
                 </p>
