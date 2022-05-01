@@ -3,7 +3,7 @@ import styles from './GallerySelect.module.scss';
 import clsx from 'clsx';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { toggleCardFavorite, toggleComparing, getAllProducts } from '../../../redux/productsRedux';
 import { getAllGaleryCategories } from '../../../redux/galleryRedux';
@@ -13,8 +13,8 @@ import ProductRating from '../ProductRating/ProductRating';
 import Tooltip from '../Tooltip/Tooltip';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar, faEye, faExchangeAlt, faShoppingBasket, faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
-import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faEye, faExchangeAlt, faShoppingBasket, faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import { faStar as faHeart } from '@fortawesome/free-regular-svg-icons';
 
 const GallerySelect = () => {
 
@@ -30,7 +30,27 @@ const GallerySelect = () => {
   const selectedProduct = activeProducts[imageIndex];
 
   const [slideIndex, setSlideIndex] = useState(0); // row of displayed thumbnails
-  const slidesCount = Math.ceil(activeProducts.length / 6);
+  const [thumbnailCount, setThumbnailCount] = useState(0); // number of thumbnails to display in a row depending on window's width
+
+  useEffect(() => {
+    function handleSliderResize() {
+      if (window.innerWidth < 1024) {
+        setThumbnailCount(3);
+      } else if (window.innerWidth < 1440) {
+        setThumbnailCount(4);
+      } else {
+        setThumbnailCount(6);
+      }
+    }
+    handleSliderResize();
+
+    window.addEventListener('resize', handleSliderResize);
+    return () => {
+      window.removeEventListener('resize', handleSliderResize);
+    };
+  }, []);
+
+  const slidesCount = Math.ceil(activeProducts.length / thumbnailCount); // number of rows/slides depending on thumbnail count
 
   const handleCategoryChange = clickedCategory => {
     const newCategoryProducts = allProducts.filter(product => product.galleryTag === clickedCategory.id);
@@ -147,7 +167,7 @@ const GallerySelect = () => {
 
         <div className={styles.sliderImages}>
           {activeProducts
-            .slice(slideIndex * 6, (slideIndex + 1) * 6)
+            .slice(slideIndex * thumbnailCount, (slideIndex + 1) * thumbnailCount)
             .map(product => (
               <a key={product.id} className={clsx(styles.singleSliderImage, product.id === selectedProduct.id && styles.activeThumbnail)} onClick={() => setImageIndex(activeProducts.indexOf(product))}>
                 <img

@@ -261,11 +261,13 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 70px;
+      height: 80%;
+      max-height: 70px;
       gap: 10px;
 
       .singleSliderImage {
         height: 100%;
+        max-width: 70px;
         flex: 1;
         position: relative;
 
@@ -293,8 +295,29 @@
           width: 100%;
           object-fit: cover;
         }
-
       }
     }
+  }
+}
+
+@include for-tablet {
+  .menu {
+    a {
+      font-size: 14px !important;
+    }
+  }
+  .productDetails {
+    transform: scale(0.8);
+  }
+}
+
+@include for-mobile-s {
+  .menu {
+    a {
+      font-size: 10px !important;
+    }
+  }
+  .productDetails {
+    transform: scale(0.7);
   }
 }
