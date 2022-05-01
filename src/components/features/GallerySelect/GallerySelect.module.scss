@@ -88,213 +88,238 @@
     }
   }
 
+// ----------- PREVIEW - IMAGE + SLIDER -----------
+
+  .wholeCategoryDisplay {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
 // ----------- PRODUCT SECTION -----------
 
-  .previewContainer {
-    flex: 50%;
-    background-color: $gallery-bg;
-    border: 1px solid $gallery-border;
-    border-top: none;
-    position: relative;
+    .previewContainer {
+      flex: 4;
+      background-color: $gallery-bg;
+      border: 1px solid $gallery-border;
+      border-top: none;
+      position: relative;
 
-    // MAIN IMAGE
-    .selectedImageContainer {
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      .selectedImage {
-        border-radius: 10px;
-        height: 80%;
-        width: 80%;
-        object-fit: cover;
-      }
-    }
-
-    // BUTTONS
-    .actions {
-      height: 100%;
-      width: 100%;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-
-      .outlines {
+      // MAIN IMAGE
+      .selectedImageContainer {
+        position: absolute;
+        height: 100%;
+        width: 100%;
         display: flex;
-        flex-direction: column;
+        justify-content: center;
         align-items: center;
-        margin-left: 5px;
-        gap: 5px;
 
-        .isFavorite, .comparing {
+        .selectedImage {
+          border-radius: 10px;
+          height: 80%;
+          width: 80%;
+          object-fit: cover;
+        }
+      }
+
+      // BUTTONS
+      .actions {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        .outlines {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-left: 5px;
+          gap: 5px;
+
+          .isFavorite, .comparing {
+            border: 1px solid $productBox-hover;
+            color: $productBox-hover;
+            background-color: transparent;
+          }
+        }
+      }
+
+      .actionButton {
+        position: relative;
+
+        &:hover {
           border: 1px solid $productBox-hover;
           color: $productBox-hover;
           background-color: transparent;
         }
       }
-    }
 
-    .actionButton {
-      position: relative;
-
-      &:hover {
-        border: 1px solid $productBox-hover;
-        color: $productBox-hover;
-        background-color: transparent;
-      }
-    }
-
-    // PRICE + RATING
-    .productDetails {
-      position: absolute;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-
-      bottom: 10%;
-      right: 0;
-
-      // PRICE
-      .priceCircle {
-        background-color: $price-circle-bg;
-        border-radius: 50%;
-        height: 100px;
-        width: 100px;
-        color: $price-cicrle-text;
+      // PRICE + RATING
+      .productDetails {
+        position: absolute;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-        flex-direction: column;
-        z-index: 1;
-        opacity: 0.9;
 
-        .newPrice {
-          font-size: 20px;
-          margin: 0;
-        }
-        .oldPrice {
-          font-size: 16px;
-          text-decoration: line-through;
-          margin: 0;
-        }
-        .noOldPrice {
-          display: none;
-        }
-      }
+        bottom: 10%;
+        right: 0;
 
-      // RATING
-      .ratingBox {
-        width: 250px;
-        height: 100px;
-        background-color: $rating-box-bg;
-        margin-top: -20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        position: relative;
-        overflow: hidden;
-        box-shadow: -2px 4px 5px 0 $rating-box-shadow;
+        // PRICE
+        .priceCircle {
+          background-color: $price-circle-bg;
+          border-radius: 50%;
+          height: 100px;
+          width: 100px;
+          color: $price-cicrle-text;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          z-index: 1;
+          opacity: 0.9;
 
-        &::before {
-          content: "";
-          position: absolute;
-          top: -20px;
-          left: -20px;
-          width: 40px;
-          height: 40px;
-          background-color: $tooltip-bg;
-          transform: rotate(45deg);
+          .newPrice {
+            font-size: 20px;
+            margin: 0;
+          }
+          .oldPrice {
+            font-size: 16px;
+            text-decoration: line-through;
+            margin: 0;
+          }
+          .noOldPrice {
+            display: none;
+          }
         }
 
-        &::after {
-          content: "";
-          position: absolute;
-          bottom: -20px;
-          right: -20px;
-          width: 40px;
-          height: 40px;
-          background-color: $tooltip-bg;
-          transform: rotate(45deg);
-        }
+        // RATING
+        .ratingBox {
+          width: 250px;
+          height: 100px;
+          background-color: $rating-box-bg;
+          margin-top: -20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          position: relative;
+          overflow: hidden;
+          box-shadow: -2px 4px 5px 0 $rating-box-shadow;
 
-        .productName, .stars {
-          margin: 0;
-        }
+          &::before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 40px;
+            height: 40px;
+            background-color: $tooltip-bg;
+            transform: rotate(45deg);
+          }
 
-        .stars {
-          a {
-            text-decoration: none;
-            color: $productBox-stars;
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            width: 40px;
+            height: 40px;
+            background-color: $tooltip-bg;
+            transform: rotate(45deg);
+          }
+
+          .productName, .stars {
+            margin: 0;
+          }
+
+          .stars {
+            a {
+              text-decoration: none;
+              color: $productBox-stars;
+            }
           }
         }
       }
     }
-  }
 
 // ----------- SLIDER -----------
 
-  .slider {
-    background: $slider-bg;
-    flex: 1;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border: 1px solid $gallery-border;
-    border-top: none;
-
-    .sliderButton {
-      color: $slider-bg;
-      background-color: $slider-button-bg;
-      height: 80%;
+    .slider {
+      background: $slider-bg;
+      flex: 1;
+      position: relative;
       display: flex;
       align-items: center;
-      margin: 0 10px;
-    }
+      justify-content: space-between;
+      border: 1px solid $gallery-border;
+      border-top: none;
 
-    .sliderImages {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 70px;
-      gap: 10px;
+      .sliderButton {
+        color: $slider-bg;
+        background-color: $slider-button-bg;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        margin: 0 10px;
+      }
 
-      .singleSliderImage {
-        height: 100%;
-        flex: 1;
-        position: relative;
+      .sliderImages {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 70px;
+        gap: 10px;
 
-        &::after {
-          content: "";
-          top: 0;
-          left: 0;
-          position: absolute;
+        .singleSliderImage {
           height: 100%;
-          width: 100%;
-          background-color: $slider-overlay;
-          opacity: 0.7;
-        }
+          flex: 1;
+          position: relative;
 
-        &:hover::after {
-          opacity: 0;
-        }
+          &::after {
+            content: "";
+            top: 0;
+            left: 0;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-color: $slider-overlay;
+            opacity: 0.7;
+          }
 
-        &.activeThumbnail::after {
-          opacity: 0;
-        }
+          &:hover::after {
+            opacity: 0;
+          }
 
-        .image {
-          height: 100%;
-          width: 100%;
-          object-fit: cover;
-        }
+          &.activeThumbnail::after {
+            opacity: 0;
+          }
 
+          .image {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+          }
+
+        }
       }
     }
   }
+}
+
+
+.categoryFadeWrapper {
+  transition: 0.5s opacity ease-in;
+}
+
+.productFadeWrapper {
+  transition: 0.5s opacity ease-in;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+.fade-in {
+  opacity: 1;
 }

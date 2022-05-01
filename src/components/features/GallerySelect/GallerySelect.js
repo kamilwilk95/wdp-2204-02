@@ -59,6 +59,10 @@ const GallerySelect = () => {
     }
   };
 
+  const selectProduct = index => {
+    setImageIndex(index);
+  };
+
   const favoriteClick = e => {
     e.preventDefault();
     dispatch(toggleCardFavorite(selectedProduct.id));
@@ -67,6 +71,22 @@ const GallerySelect = () => {
   const toggleCompare = e => {
     e.preventDefault();
     dispatch(toggleComparing(selectedProduct.id));
+  };
+
+  const [fadeTransition, setFadeTransition] = useState(null);
+  const [productFade, setProductFade] = useState('fade-in');
+  const [categoryFade, setCategoryFade] = useState('fade-in');
+
+  const handleFade = (e, setFadeStatePart, performOnFade, performOnFadeParams) => {
+    e.preventDefault();
+    const timeout = setTimeout(() => {
+      performOnFade(performOnFadeParams);
+      setFadeStatePart('fade-in');
+      setFadeTransition(null);
+    }, 500);
+    clearTimeout(fadeTransition);
+    setFadeStatePart('fade-out');
+    setFadeTransition(timeout);
   };
 
   return (
@@ -84,7 +104,8 @@ const GallerySelect = () => {
               <li key={item.id}>
                 <a
                   className={clsx(item.id === activeCategory.id && styles.active)}
-                  onClick={() => handleCategoryChange(item)}
+                  // onClick={() => handleCategoryChange(item)}
+                  onClick={e => handleFade(e, setCategoryFade, handleCategoryChange, item)}
                 >
                   {item.name}
                 </a>
@@ -94,74 +115,80 @@ const GallerySelect = () => {
         </div>
       </div>
 
-      {/* ----------- SELECTED PRODUCT PREVIEW ----------- */}
+      {/* ----------- THE WHOLE PREVIEW SECTION - PRODUCT + SLIDER ----------- */}
 
-      <div className={styles.previewContainer}>
-        <div className={styles.selectedImageContainer}>
-          <img
-            className={styles.selectedImage}
-            alt={selectedProduct.name}
-            src={`${process.env.PUBLIC_URL}/images/products/${selectedProduct.name}.jpg`}
-          />
-        </div>
-        <div className={styles.actions}>
-          <div className={styles.outlines}>
-            <Button variant='outline' onClick={favoriteClick} className={clsx(styles.actionButton, selectedProduct.isFavorite && styles.isFavorite)}>
-              <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
-              <Tooltip text='Add to favorites' />
-            </Button>
-            <Button variant='outline' onClick={toggleCompare} className={clsx(styles.actionButton, selectedProduct.comparing && styles.comparing)}>
-              <FontAwesomeIcon icon={faExchangeAlt}>Compare</FontAwesomeIcon>
-              <Tooltip text='Add to compare' />
-            </Button>
-            <Button variant='outline' className={clsx(styles.actionButton)}>
-              <FontAwesomeIcon icon={faEye}>QuickView</FontAwesomeIcon>
-              <Tooltip text='Quick view' />
-            </Button>
-            <Button variant='outline' className={clsx(styles.actionButton)}>
-              <FontAwesomeIcon icon={faShoppingBasket}>Cart</FontAwesomeIcon>
-              <Tooltip text='Add to cart' />
-            </Button>
+      <div className={clsx(styles.wholeCategoryDisplay, styles.categoryFadeWrapper, styles[categoryFade])}>
+
+        {/* ----------- SELECTED PRODUCT PREVIEW ----------- */}
+
+        <div className={clsx(styles.previewContainer, styles.productFadeWrapper, styles[productFade])}>
+          <div className={styles.selectedImageContainer}>
+            <img
+              className={styles.selectedImage}
+              alt={selectedProduct.name}
+              src={`${process.env.PUBLIC_URL}/images/products/${selectedProduct.name}.jpg`}
+            />
           </div>
-        </div>
-
-        <div className={styles.productDetails}>
-          <div className={styles.priceCircle}>
-            <p className={styles.newPrice}>${selectedProduct.price}</p>
-            <p className={clsx(styles.oldPrice, !selectedProduct.oldPrice && styles.noOldPrice)}>${selectedProduct.oldPrice}</p>
+          <div className={styles.actions}>
+            <div className={styles.outlines}>
+              <Button variant='outline' onClick={favoriteClick} className={clsx(styles.actionButton, selectedProduct.isFavorite && styles.isFavorite)}>
+                <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
+                <Tooltip text='Add to favorites' />
+              </Button>
+              <Button variant='outline' onClick={toggleCompare} className={clsx(styles.actionButton, selectedProduct.comparing && styles.comparing)}>
+                <FontAwesomeIcon icon={faExchangeAlt}>Compare</FontAwesomeIcon>
+                <Tooltip text='Add to compare' />
+              </Button>
+              <Button variant='outline' className={clsx(styles.actionButton)}>
+                <FontAwesomeIcon icon={faEye}>QuickView</FontAwesomeIcon>
+                <Tooltip text='Quick view' />
+              </Button>
+              <Button variant='outline' className={clsx(styles.actionButton)}>
+                <FontAwesomeIcon icon={faShoppingBasket}>Cart</FontAwesomeIcon>
+                <Tooltip text='Add to cart' />
+              </Button>
+            </div>
           </div>
-          <div className={styles.ratingBox}>
-            <p className={styles.productName}>{selectedProduct.name}</p>
-            <ProductRating id={selectedProduct.id} stars={selectedProduct.stars} rating={selectedProduct.rating}/>
+
+          <div className={styles.productDetails}>
+            <div className={styles.priceCircle}>
+              <p className={styles.newPrice}>${selectedProduct.price}</p>
+              <p className={clsx(styles.oldPrice, !selectedProduct.oldPrice && styles.noOldPrice)}>${selectedProduct.oldPrice}</p>
+            </div>
+            <div className={styles.ratingBox}>
+              <p className={styles.productName}>{selectedProduct.name}</p>
+              <ProductRating id={selectedProduct.id} stars={selectedProduct.stars} rating={selectedProduct.rating}/>
+            </div>
           </div>
+
         </div>
 
-      </div>
+        {/* ----------- SLIDER ----------- */}
 
-      {/* ----------- SLIDER ----------- */}
+        <div className={styles.slider}>
+          <Button variant='outline' className={styles.sliderButton} onClick={prevSlide}>
+            <FontAwesomeIcon icon={faAngleLeft}></FontAwesomeIcon>
+          </Button>
 
-      <div className={styles.slider}>
-        <Button variant='outline' className={styles.sliderButton} onClick={prevSlide}>
-          <FontAwesomeIcon icon={faAngleLeft}></FontAwesomeIcon>
-        </Button>
+          <div className={styles.sliderImages}>
+            {activeProducts
+              .slice(slideIndex * 6, (slideIndex + 1) * 6)
+              .map(product => (
+                <a key={product.id} className={clsx(styles.singleSliderImage, product.id === selectedProduct.id && styles.activeThumbnail)} onClick={e => handleFade(e, setProductFade, selectProduct, activeProducts.indexOf(product))}>
+                  <img
+                    className={styles.image}
+                    alt={product.name}
+                    src={`${process.env.PUBLIC_URL}/images/products/${product.name}.jpg`}
+                  />
+                </a>
+              ))}
+          </div>
 
-        <div className={styles.sliderImages}>
-          {activeProducts
-            .slice(slideIndex * 6, (slideIndex + 1) * 6)
-            .map(product => (
-              <a key={product.id} className={clsx(styles.singleSliderImage, product.id === selectedProduct.id && styles.activeThumbnail)} onClick={() => setImageIndex(activeProducts.indexOf(product))}>
-                <img
-                  className={styles.image}
-                  alt={product.name}
-                  src={`${process.env.PUBLIC_URL}/images/products/${product.name}.jpg`}
-                />
-              </a>
-            ))}
+          <Button variant='outline' className={styles.sliderButton} onClick={nextSlide}>
+            <FontAwesomeIcon icon={faAngleRight}></FontAwesomeIcon>
+          </Button>
+
         </div>
-
-        <Button variant='outline' className={styles.sliderButton} onClick={nextSlide}>
-          <FontAwesomeIcon icon={faAngleRight}></FontAwesomeIcon>
-        </Button>
 
       </div>
 
