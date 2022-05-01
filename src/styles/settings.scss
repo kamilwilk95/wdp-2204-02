@@ -26,6 +26,7 @@ $base-padding: 24px;
 
 $white: #ffffff;
 $darkOrange: #d58e32;
+$lightGreen: #79ae30;
 
 $darkGrayOne: #2a2a2a;
 $darkGrayTwo: #292929;
@@ -46,6 +47,7 @@ $form-border-color: #292929;
 $grayOne: #a5a5a5;
 $grayTwo: #a9a9a9;
 $grayThree: #b6b6b6;
+$grayFour: #7b7b7c;
 
 $lightGrayOne: #d8d8d8;
 $lightGrayTwo: #e0e3ed;
@@ -53,10 +55,13 @@ $lightGrayThree: #e1e1e1;
 $lightGrayFour: #e2e2e2;
 $lightGrayFive: #f4f5f7;
 
+
 // ---------- COLOR VARIABLES - TO BE USED ----------
 
 // button
 $button-bg: $darkGrayOne;
+$button-light-bg: $white;
+$button-light-text: $darkGrayOne;
 $button-text: $white;
 $button-hover: $darkOrange;
 
@@ -77,6 +82,7 @@ $productBox-sale-box: $darkGrayTwo;
 $productBox-stars: $darkGrayOne;
 $productBox-hover: $darkOrange;
 $productBox-old-price: $grayOne;
+$productBox-text: $white;
 
 // new furniture
 $furniture-border: $lightGrayFour;
@@ -90,6 +96,16 @@ $search-border: $darkGrayTwo;
 $search-bg: $white;
 $search-text: $darkGrayOne;
 $search-hover: $darkOrange;
+
+// promoted
+$promoted-bg: $darkGrayOne;
+$promoted-light-bg: $white;
+$promoted-text: $white;
+$promoted-text-hover: $darkOrange;
+$promoted-hover: $darkOrange;
+$promoted-stars: $darkGrayOne;
+$promoted-old-price: $grayOne;
+$promoted-border: $lightGrayThree;
 
 // company claim (header)
 $header-bg: $darkGrayThree;
@@ -110,15 +126,49 @@ $menuBar-bg: $white;
 $menuBar-text: $darkGrayOne;
 $menuBar-hover: $darkOrange;
 
+// menu burger
+$menuBurger-text: $white;
+$menuBurger-bg: $darkGrayOne;
+$menuBurger-ico: $darkGrayTwo;
+$menuBurger-hover: $lightGrayOne;
+
+
 // top bar
 $topBar-bg: $darkGrayFour;
 $topBar-hover: $darkOrange;
 $topBar-text: $white;
 
 // feedback
-
 $feedback-border: $lightGrayFour;
 $feedback-category: $darkGrayOne;
 $feedback-hover: $darkOrange;
 $feedback-button-bg: $white;
 $feedback-page-switch: $lightGrayThree;
+
+// promotions
+$promotions-primary-text: $white;
+$promotions-secondary-text: $darkOrange;
+$promotions-shadow-bg: $darkGrayOne;
+$promotions-primary-bg: #E9EDF7;
+$promotions-secondary-bg: #FAF2F8;
+
+// Gallery
+$ad-button: $lightGreen;
+$ad-text: $darkOrange;
+$gallery-hover: $darkOrange;
+$gallery-border: $lightGrayFour;
+$gallery-bg: $lightGrayFive;
+$gallery-category: $darkGrayOne;
+$tooltip-text: $white;
+$tooltip-bg: $darkGrayOne;
+$price-circle-bg: $grayFour;
+$price-cicrle-text: $white;
+$rating-box-bg: $white;
+$rating-box-shadow: $darkGrayThree;
+$slider-bg: $white;
+$slider-button-bg: $darkGrayOne;
+$slider-overlay: $grayFour;
+
+// Brands
+$brands-border: $lightGrayOne;
+

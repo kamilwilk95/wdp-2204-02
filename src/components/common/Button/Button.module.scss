@@ -27,6 +27,36 @@
   font-weight: 400;
 }
 
+.slide {
+  @extend .main;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 10px;
+  line-height: 120px;
+}
+
+.light {
+  @extend .main;
+  font-size: 12px;
+  line-height: 30px;
+  border-radius: 5%;
+  padding: 12px 30px;
+  font-weight: 500;
+  background-color: $button-light-bg;
+  color: $button-light-text;
+}
+
+.long {
+  @extend .main;
+  font-size: 12px;
+  line-height: 15px;
+  width: 100%;
+  display: block;
+  margin: 0;
+  padding: 5px 0px;
+  text-align: center;
+}
+
 .outline {
   display: inline-block;
   padding: 5px 10px;
@@ -40,4 +70,3 @@
     color: $button-text;
   }
 }
-
