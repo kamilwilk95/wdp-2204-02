@@ -77,8 +77,7 @@ const GallerySelect = () => {
   const [productFade, setProductFade] = useState('fade-in');
   const [categoryFade, setCategoryFade] = useState('fade-in');
 
-  const handleFade = (e, setFadeStatePart, performOnFade, performOnFadeParams) => {
-    e.preventDefault();
+  const handleFade = (setFadeStatePart, performOnFade, performOnFadeParams) => {
     const timeout = setTimeout(() => {
       performOnFade(performOnFadeParams);
       setFadeStatePart('fade-in');
@@ -105,7 +104,7 @@ const GallerySelect = () => {
                 <a
                   className={clsx(item.id === activeCategory.id && styles.active)}
                   // onClick={() => handleCategoryChange(item)}
-                  onClick={e => handleFade(e, setCategoryFade, handleCategoryChange, item)}
+                  onClick={() => handleFade(setCategoryFade, handleCategoryChange, item)}
                 >
                   {item.name}
                 </a>
@@ -174,7 +173,7 @@ const GallerySelect = () => {
             {activeProducts
               .slice(slideIndex * 6, (slideIndex + 1) * 6)
               .map(product => (
-                <a key={product.id} className={clsx(styles.singleSliderImage, product.id === selectedProduct.id && styles.activeThumbnail)} onClick={e => handleFade(e, setProductFade, selectProduct, activeProducts.indexOf(product))}>
+                <a key={product.id} className={clsx(styles.singleSliderImage, product.id === selectedProduct.id && styles.activeThumbnail)} onClick={() => handleFade(setProductFade, selectProduct, activeProducts.indexOf(product))}>
                   <img
                     className={styles.image}
                     alt={product.name}
