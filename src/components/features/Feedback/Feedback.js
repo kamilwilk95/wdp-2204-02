@@ -4,10 +4,7 @@ import PropTypes from 'prop-types';
 import styles from './Feedback.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuoteRight } from '@fortawesome/free-solid-svg-icons';
-
 import Swipable from '../../common/Swipeable/Swipable';
-
-// import clsx from 'clsx';
 
 class Feedback extends React.Component {
   state = {
@@ -98,7 +95,6 @@ class Feedback extends React.Component {
 }
 
 Feedback.propTypes = {
-  children: PropTypes.node,
   feedback: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
