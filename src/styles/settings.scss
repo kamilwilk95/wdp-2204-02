@@ -132,11 +132,17 @@ $menuBurger-bg: $darkGrayOne;
 $menuBurger-ico: $darkGrayTwo;
 $menuBurger-hover: $lightGrayOne;
 
-
 // top bar
 $topBar-bg: $darkGrayFour;
 $topBar-hover: $darkOrange;
 $topBar-text: $white;
+
+// feedback
+$feedback-border: $lightGrayFour;
+$feedback-category: $darkGrayOne;
+$feedback-hover: $darkOrange;
+$feedback-button-bg: $white;
+$feedback-page-switch: $lightGrayThree;
 
 // promotions
 $promotions-primary-text: $white;
@@ -164,3 +170,4 @@ $slider-overlay: $grayFour;
 
 // Brands
 $brands-border: $lightGrayOne;
+
