@@ -107,7 +107,7 @@ Feedback.propTypes = {
 };
 
 Feedback.defaultProps = {
-  feedback: [],
+  feedback: [],     
 };
 
 export default Feedback;
