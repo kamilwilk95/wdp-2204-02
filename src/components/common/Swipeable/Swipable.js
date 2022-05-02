@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import styles from './Swipeable.module.scss';
 
 const Swipable = ({ children, leftAction, rightAction }) => {
   const [touchStart, setTouchStart] = useState(null);
@@ -33,7 +32,7 @@ const Swipable = ({ children, leftAction, rightAction }) => {
   };
 
   return (
-    <div onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd} className={styles.swipeContainer}>
+    <div onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}>
       {children}
     </div>
   );
