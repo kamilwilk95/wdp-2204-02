@@ -376,9 +376,38 @@ const initialState = {
       rating: 0,
     },
   ],
+
   cart: {
     products: [],
   },
+
+  feedback: [
+    {
+      id: 1,
+      comment:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tincidunt sodales augue ac iaculis. Vestibulum egestas vestibulum nunc, nec tristique massa auctor ut.',
+      name: 'John Doe',
+      photo: '/images/feedback/John_Doe.jpg',
+      description: 'Client',
+    },
+    {
+      id: 2,
+      comment:
+        'Cras egestas nunc a diam blandit, quis efficitur mi malesuada. Cras auctor lectus vel consectetur aliquet. Pellentesque efficitur consequat mattis. Morbi aliquet hendrerit ligula.',
+      name: 'Emily Smith',
+      photo: '/images/feedback/Emily_Smith.jpg',
+      description: 'Client',
+    },
+    {
+      id: 3,
+      comment:
+        'Quisque finibus orci eget nulla ullamcorper ullamcorper. Nam sit amet diam vulputate, mattis orci sit amet, ultricies ligula. Vivamus consectetur risus eu tellus efficitur congue. Cras nec urna nibh. Maecenas viverra blandit cursus.',
+      name: 'George Brown',
+      photo: '/images/feedback/George_Brown.jpg',
+      description: 'Client',
+    },
+  ],
+
   brands: [
     {
       id: 'brand-1',
@@ -429,6 +458,36 @@ const initialState = {
       id: 'brand-10',
       name: 'brand 10',
       image: '/images/brands/brand-10.png',
+    },
+    {
+      id: 'brand-11',
+      name: 'brand 11',
+      image: '/images/brands/brand-11.png',
+    },
+    {
+      id: 'brand-12',
+      name: 'brand 12',
+      image: '/images/brands/brand-12.png',
+    },
+    {
+      id: 'brand-13',
+      name: 'brand 13',
+      image: '/images/brands/brand-13.png',
+    },
+    {
+      id: 'brand-14',
+      name: 'brand 14',
+      image: '/images/brands/brand-14.png',
+    },
+    {
+      id: 'brand-15',
+      name: 'brand 15',
+      image: '/images/brands/brand-15.png',
+    },
+    {
+      id: 'brand-16',
+      name: 'brand 16',
+      image: '/images/brands/brand-16.png',
     },
   ],
   baners: [
