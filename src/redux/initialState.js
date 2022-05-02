@@ -431,6 +431,28 @@ const initialState = {
       image: '/images/brands/brand-10.png',
     },
   ],
+  baners: [
+    {
+      id: 'baner-1',
+      name: 'baner 1',
+      image: '/images/promoted_baners/baner_indoor_furniture_1.jpg',
+    },
+    {
+      id: 'baner-2',
+      name: 'baner 2',
+      image: '/images/promoted_baners/baner_indoor_furniture_2.jpg',
+    },
+    {
+      id: 'baner-3',
+      name: 'baner 3',
+      image: '/images/promoted_baners/baner_indoor_furniture_3.jpg',
+    },
+    {
+      id: 'baner-4',
+      name: 'baner 4',
+      image: '/images/promoted_baners/baner_indoor_furniture_4.jpg',
+    },
+  ],
 };
 
 export default initialState;

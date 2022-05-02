@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { getAllProducts } from '../../../redux/productsRedux';
+import { getAllBaners } from '../../../redux/promotedBanersRedux';
 import clsx from 'clsx';
 
 import styles from './Promoted.module.scss';
@@ -15,12 +16,39 @@ import Button from '../../common/Button/Button';
 const Promoted = () => {
 
   const products = useSelector(state => getAllProducts(state));
+  const baners = useSelector(state => getAllBaners(state));
+  const [baner, setBaner] = useState(0);
+
+
+
+
+  const movePrev = (event) => {
+    event.preventDefault();
+    const prev = baner -1;
+    if(baner !== 1){
+      setBaner(prev);
+    }
+    else if (baner === 1){
+      setBaner(baners.length);
+    }
+  };
+
+  const moveNext = (event) => {
+    event.preventDefault();
+    if(baner !== baners.length){
+      setBaner(baner + 1);
+    }
+    else if (baner === baners.length){
+      setBaner(1);
+    }
+  };
 
   return (
 
     <div className={styles.root}>
       <div className='container'>
         <div className='row'>
+
           <div className={clsx('col-4', styles.leftSide)}>
             <div className={styles.heading}>
               <div className={clsx(styles.hotDeals, 'col')}>
@@ -42,6 +70,9 @@ const Promoted = () => {
             </div>
             <div className={styles.wraperPhotoBoxLeft}>
               <div className={styles.photoBoxLeft}>
+
+
+
                 <img
                   className={styles.imageLeft}
                   alt={products[7].name}
@@ -122,13 +153,19 @@ const Promoted = () => {
               </div>
             </div>
           </div>
+
           <div className={clsx('col-8', styles.rightSide)}>
             <div className={styles.photoBoxRight}>
-              <img
+
+              {baners.map(baner => (
+                <img className={styles.imageRight} key={baner.id} alt={baner.name} src={baner.image}/>
+              ))}
+
+              {/*<img
                 className={styles.imageRight}
                 alt={'sofa- Aenean Ru Bristique'}
                 src={`${process.env.PUBLIC_URL}/images/baner_indoor_furniture.jpg`}
-              />
+                />*/}
               <div className={styles.shadowImage}>
                 <div className={styles.slogan}>
                   INDOOR <span>FURNITURE</span>
@@ -142,10 +179,10 @@ const Promoted = () => {
               </div>
               <div className={clsx('row', styles.arrowButtonSet)}>
                 <div className={clsx('col-6', styles.longButton)}>
-                  <Button variant='long'>{'<'}</Button>
+                  <Button variant='long' onClick={movePrev}>{'<'}</Button>
                 </div>
                 <div className={clsx('col-6', styles.longButton)}>
-                  <Button variant='long'>{'>'}</Button>
+                  <Button variant='long' onClick={moveNext}>{'>'}</Button>
                 </div>
               </div>
             </div>
