@@ -11,6 +11,7 @@ import { getAllGaleryCategories } from '../../../redux/galleryRedux';
 import Button from '../../common/Button/Button';
 import ProductRating from '../ProductRating/ProductRating';
 import Tooltip from '../Tooltip/Tooltip';
+import Swipable from '../../common/Swipeable/Swipable';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faExchangeAlt, faShoppingBasket, faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
@@ -34,10 +35,12 @@ const GallerySelect = () => {
 
   useEffect(() => {
     function handleSliderResize() {
-      if (window.innerWidth < 1024) {
+      if (window.innerWidth <= 450) {
         setThumbnailCount(3);
-      } else if (window.innerWidth < 1440) {
-        setThumbnailCount(4);
+      } else if (window.innerWidth <= 768) {
+        setThumbnailCount(7);
+      } else if (window.innerWidth <= 1024) {
+        setThumbnailCount(5);
       } else {
         setThumbnailCount(6);
       }
@@ -165,26 +168,27 @@ const GallerySelect = () => {
           <FontAwesomeIcon icon={faAngleLeft}></FontAwesomeIcon>
         </Button>
 
-        <div className={styles.sliderImages}>
-          {activeProducts
-            .slice(slideIndex * thumbnailCount, (slideIndex + 1) * thumbnailCount)
-            .map(product => (
-              <a key={product.id} className={clsx(styles.singleSliderImage, product.id === selectedProduct.id && styles.activeThumbnail)} onClick={() => setImageIndex(activeProducts.indexOf(product))}>
-                <img
-                  className={styles.image}
-                  alt={product.name}
-                  src={`${process.env.PUBLIC_URL}/images/products/${product.name}.jpg`}
-                />
-              </a>
-            ))}
-        </div>
+        <Swipable leftAction={nextSlide} rightAction={prevSlide}>
+          <div className={styles.sliderImages}>
+            {activeProducts
+              .slice(slideIndex * thumbnailCount, (slideIndex + 1) * thumbnailCount)
+              .map(product => (
+                <a key={product.id} className={clsx(styles.singleSliderImage, product.id === selectedProduct.id && styles.activeThumbnail)} onClick={() => setImageIndex(activeProducts.indexOf(product))}>
+                  <img
+                    className={styles.image}
+                    alt={product.name}
+                    src={`${process.env.PUBLIC_URL}/images/products/${product.name}.jpg`}
+                  />
+                </a>
+              ))}
+          </div>
+        </Swipable>
 
         <Button variant='outline' className={styles.sliderButton} onClick={nextSlide}>
           <FontAwesomeIcon icon={faAngleRight}></FontAwesomeIcon>
         </Button>
 
       </div>
-
     </div>
   );
 };
