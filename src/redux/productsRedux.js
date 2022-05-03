@@ -7,6 +7,11 @@ export const getNew = ({ products }) =>
 export const getComparedProducts = ({ products }) =>
   products.filter(item => item.comparing === true);
 
+
+export const getPromoted = ({ products }) =>
+  products.filter(item => item.oldPrice !== undefined);
+
+
 /* action name creator */
 const reducerName = 'products';
 const createActionName = name => `app/${reducerName}/${name}`;
@@ -37,7 +42,7 @@ export default function reducer(statePart = [], action = {}) {
     case TOGGLE_CARD_FAVORITE:
       return statePart.map(product => (product.id === action.payload) ? { ...product, isFavorite: !product.isFavorite } : product);
     case SET_RATING:
-      return statePart.map(product => (product.id === action.payload.id) ? { ...product,  rating: action.payload.starRating } : product); 
+      return statePart.map(product => (product.id === action.payload.id) ? { ...product,  rating: action.payload.starRating } : product);
     default:
       return statePart;
   }
