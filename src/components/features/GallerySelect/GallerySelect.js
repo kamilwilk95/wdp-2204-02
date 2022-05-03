@@ -23,11 +23,13 @@ const GallerySelect = () => {
   const galleryCategories = useSelector(getAllGaleryCategories);
   const allProducts = useSelector(getAllProducts);
 
-  const [activeCategory, setActiveCategory] = useState(galleryCategories[0]);
-  const activeProducts = allProducts.filter(product => product.galleryTag === activeCategory.id);
+  const [galleryState, setGalleryState] = useState({
+    imageIndex: 0, // selected image
+    activeCategory: galleryCategories[0],
+  });
 
-  const [imageIndex, setImageIndex] = useState(0); // selected image
-  const selectedProduct = activeProducts[imageIndex];
+  const activeProducts = allProducts.filter(product => product.galleryTag === galleryState.activeCategory.id);
+  const selectedProduct = activeProducts[galleryState.imageIndex];
 
   const [slideIndex, setSlideIndex] = useState(0); // row of displayed thumbnails
   const slidesCount = Math.ceil(activeProducts.length / 6);
@@ -35,9 +37,11 @@ const GallerySelect = () => {
   const handleCategoryChange = clickedCategory => {
     const newCategoryProducts = allProducts.filter(product => product.galleryTag === clickedCategory.id);
     if (newCategoryProducts.length > 0) {
-      setActiveCategory(clickedCategory);
+      setGalleryState({
+        imageIndex: 0,
+        activeCategory: clickedCategory,
+      });
       setSlideIndex(0);
-      setImageIndex(0);
     }
   };
 
@@ -60,7 +64,10 @@ const GallerySelect = () => {
   };
 
   const selectProduct = index => {
-    setImageIndex(index);
+    setGalleryState({
+      ...galleryState,
+      imageIndex: index,
+    });
   };
 
   const favoriteClick = e => {
@@ -102,7 +109,7 @@ const GallerySelect = () => {
             {galleryCategories.map(item => (
               <li key={item.id}>
                 <a
-                  className={clsx(item.id === activeCategory.id && styles.active)}
+                  className={clsx(item.id === galleryState.activeCategory.id && styles.active)}
                   // onClick={() => handleCategoryChange(item)}
                   onClick={() => handleFade(setCategoryFade, handleCategoryChange, item)}
                 >
@@ -173,7 +180,11 @@ const GallerySelect = () => {
             {activeProducts
               .slice(slideIndex * 6, (slideIndex + 1) * 6)
               .map(product => (
-                <a key={product.id} className={clsx(styles.singleSliderImage, product.id === selectedProduct.id && styles.activeThumbnail)} onClick={() => handleFade(setProductFade, selectProduct, activeProducts.indexOf(product))}>
+                <a
+                  key={product.id}
+                  className={clsx(styles.singleSliderImage, product.id === selectedProduct.id && styles.activeThumbnail)}
+                  onClick={() => handleFade(setProductFade, selectProduct, activeProducts.indexOf(product))}
+                >
                   <img
                     className={styles.image}
                     alt={product.name}
