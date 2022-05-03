@@ -10,8 +10,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 
 const MainLayout = ({ children }) => {
-
-
   const [width, setWidth] = useState(window.innerWidth);
   useEffect(() => {
     const handleWindowResize = () => setWidth(window.innerWidth);
@@ -19,22 +17,17 @@ const MainLayout = ({ children }) => {
     sizeChange();
 
     return () => window.removeEventListener('resize', handleWindowResize);
-  }, []);
-
+  }, [sizeChange, width]);
 
   const isMobile = width >= 320 && width <= 767;
   const isTablet = width >= 768 && width <= 1024;
   const isDesktop = !isMobile && !isTablet;
 
-
-
-
   const dispatch = useDispatch();
 
-  const sizeChange = (e) => {
-    dispatch(windowResize( { isMobile, isTablet, isDesktop }));
+  const sizeChange = e => {
+    dispatch(windowResize({ isMobile, isTablet, isDesktop }));
   };
-
 
   return (
     <div>
@@ -44,7 +37,6 @@ const MainLayout = ({ children }) => {
       <CompareContainer />
     </div>
   );
-
 };
 
 MainLayout.propTypes = {
