@@ -203,7 +203,7 @@ const GallerySelect = () => {
           <Swipable leftAction={nextSlide} rightAction={prevSlide}>
             <div className={styles.sliderImages}>
               {activeProducts
-                .slice(slideIndex * 6, (slideIndex + 1) * 6)
+                .slice(slideIndex * thumbnailCount, (slideIndex + 1) * thumbnailCount)
                 .map(product => (
                   <a
                     key={product.id}

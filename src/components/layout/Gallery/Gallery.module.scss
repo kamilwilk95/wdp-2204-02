@@ -16,5 +16,6 @@
 @include for-mobile-l {
   .gallery {
     flex-direction: row;
+    height: auto;
   }
 }
