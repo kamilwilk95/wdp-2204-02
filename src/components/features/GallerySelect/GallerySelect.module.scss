@@ -320,3 +320,9 @@
     transform: scale(0.7);
   }
 }
+
+@include for-laptop {
+  .galleryContainer {
+    flex: 3;
+  }
+}

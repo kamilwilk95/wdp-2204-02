@@ -38,8 +38,10 @@ const GallerySelect = () => {
       if (window.innerWidth <= 450) {
         setThumbnailCount(3);
       } else if (window.innerWidth <= 768) {
-        setThumbnailCount(7);
+        setThumbnailCount(6);
       } else if (window.innerWidth <= 1024) {
+        setThumbnailCount(8);
+      } else if (window.innerWidth <= 1440) {
         setThumbnailCount(5);
       } else {
         setThumbnailCount(6);
