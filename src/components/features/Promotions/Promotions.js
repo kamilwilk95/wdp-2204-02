@@ -12,7 +12,7 @@ const Promotions = () => {
     <div className={styles.root}>
       <div className={'container'}>
         <div className={clsx('row', styles.photoBox)}>
-          <div className={clsx('col-6', styles.photoBoxLeft)}>
+          <div className={clsx('col-12 col-md-6', styles.photoBoxLeft)}>
             <img
               className={styles.imageLeft}
               alt={`${products[1].name}`}
@@ -27,7 +27,7 @@ const Promotions = () => {
             </div>
           </div>
 
-          <div className={clsx('col-6', styles.photoBoxRight)}>
+          <div className={clsx('col-12 col-md-6', styles.photoBoxRight)}>
             <div className={clsx('row', styles.photoBoxRightTop)}>
               <div className={clsx('col-4', styles.imageBox)}>
                 <img
@@ -38,13 +38,10 @@ const Promotions = () => {
               </div>
               <div className={clsx('col-4', styles.titleRightBoxTop)}>
                 <p>
-                  <span className={styles.topFirstWord}>OFFICE</span> CHAIR{' '}
-                  <br />
+                  <span className={styles.topFirstWord}>OFFICE</span> CHAIR <br />
                   <span className={styles.topThirdWord}>COLLECTION</span>
                   <br />
-                  <span
-                    className={styles.price}
-                  >{`$${products[0].price}`}</span>
+                  <span className={styles.price}>{`$${products[0].price}`}</span>
                 </p>
               </div>
               <div className={clsx('col-4', styles.imageBox)}>
@@ -66,12 +63,9 @@ const Promotions = () => {
               </div>
               <div className={clsx('col-6', styles.titleRightBoxBottom)}>
                 <p>
-                  <span className={styles.bottomFirstWord}>SPECIAL</span>{' '}
-                  COLLECTION
+                  <span className={styles.bottomFirstWord}>SPECIAL</span> COLLECTION
                   <br />
-                  <span className={styles.subtitle}>
-                    SAVE UP 45% OF FURNITURE
-                  </span>
+                  <span className={styles.subtitle}>SAVE UP 45% OF FURNITURE</span>
                 </p>
               </div>
             </div>

@@ -49,3 +49,9 @@
       object-fit: cover;
     }
 }
+
+@include for-mobile-l {
+  .ad {
+    display: none;
+  }
+}
