@@ -1,0 +1,160 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  padding-top: 50px;
+
+  .photoBox{
+        
+    .photoBoxLeft{
+      height: 400px;
+      width: 100%;
+      position: relative;
+            
+      .imageLeft{
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+
+      .titleLeftBox{
+        position: absolute;
+        bottom: 15%;
+        left: 15%;
+        font-size: 28px;
+        font-weight: 600;
+        line-height: 1;
+        color: $promotions-primary-text;
+      
+        .leftBoxWord{
+          font-size: 50px;
+          font-weight: 700;
+        }
+
+        .percent{
+          font-size: 40px;
+          border: 4px solid;
+          padding: 10px;
+          margin-top: 5px;
+          display: inline-block;
+        }
+      }
+    }
+
+    .photoBoxLeft::before{
+      position: absolute;
+      content: '';
+        background-color: $promotions-shadow-bg;
+        opacity: 50%;
+        height: 80%;
+        width: 80%;
+        top: 50%;
+        left:50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .photoBoxRight{
+      height: 100%;
+      width: 100%;
+      padding: 0 30px 0 30px;
+
+      .photoBoxRightTop{
+        height: 190px;
+        margin-bottom: 20px;
+        background-color: $promotions-primary-bg;
+
+        .imageBox{
+          height: 100%;
+          width: 100%;
+          padding: 0;
+  
+          .image{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+          }
+        }
+
+        .titleRightBoxTop{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 24px;
+          line-height: 0.8;
+          padding: 25px 0 0 0;
+
+          .topFirstWord{
+            font-weight: 800;
+          }
+
+          .topThirdWord{
+            font-size: 16px;
+            font-weight: 600;
+          }
+
+          .price{
+            font-weight: 600;
+            line-height: 2;
+            color: $promotions-secondary-text;
+          }
+        }
+      }
+
+      .photoBoxRightBottom{
+        height: 190px;
+        background-color: $promotions-secondary-bg;
+        
+        .imageBoxBottom{
+          height: 100%;
+          width: 100%;
+          padding: 0;
+
+          .imageBottom{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+          }
+        }
+
+        .titleRightBoxBottom{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 24px;
+          padding: 25px 0 0 0;
+          line-height: 1;
+          text-align: right;
+          color: $promotions-secondary-text;
+        }
+
+        .bottomFirstWord{
+          font-weight: 800;
+        }
+
+        .subtitle{
+          font-size: 18px;
+          color: black;
+        }
+      } 
+    }
+  }
+}
+
+@include for-tablet {
+  .photoBoxLeft{
+    margin-bottom: 20px;
+  }
+}
+
+@include for-laptop-l{
+  .root{
+    .photoBox{
+      .photoBoxRight{
+        .photoBoxRightBottom{
+          .titleRightBoxBottom{
+            text-align: center;
+          }
+        } 
+      }   
+    }  
+  } 
+}

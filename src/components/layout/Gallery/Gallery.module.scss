@@ -5,3 +5,16 @@
   gap: 30px;
   margin-bottom: 30px;
 }
+
+@include for-laptop {
+  .gallery {
+    flex-direction: column-reverse;
+    height: 1000px;
+  }
+}
+
+@include for-mobile-l {
+  .gallery {
+    flex-direction: row;
+  }
+}

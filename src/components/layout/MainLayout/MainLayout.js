@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { windowResize } from '../../../redux/deviceRedux';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+// import Feedback from '../../features/Feedback/Feedback';
+import Feedback from '../../features/Feedback/FeedbackContainer';
 import CompareContainer from '../../features/CompareContainer/CompareContainer';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
