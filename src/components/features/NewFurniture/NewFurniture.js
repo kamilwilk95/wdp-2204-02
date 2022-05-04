@@ -16,6 +16,9 @@ class NewFurniture extends React.Component {
     fadeState: 'fade-in',
   };
 
+  //const stan = useSelector(state => state.device);
+
+
   handleFade(statePart, newCategory) {
     const timeout = setTimeout(() => {
       this.setState({
@@ -50,9 +53,11 @@ class NewFurniture extends React.Component {
   render() {
     const { categories, products } = this.props;
     const { activeCategory, activePage } = this.state;
+    const device = this.props.device;
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
     const pagesCount = Math.ceil(categoryProducts.length / 8);
+
 
     const dots = [];
     for (let i = 0; i < pagesCount; i++) {
@@ -75,6 +80,8 @@ class NewFurniture extends React.Component {
         this.setState({ activePage: activePage + 0 });
       }
     };
+
+
 
     const rightAction = () => {
       this.setState({ activePage: activePage - 1 });
@@ -115,8 +122,33 @@ class NewFurniture extends React.Component {
             <div
               className={clsx('row', styles.fadeWrapper, styles[this.state.fadeState])}
             >
-              {categoryProducts
-                .slice(activePage * 8, (activePage + 1) * 8)
+              {device.isMobile && categoryProducts.slice(activePage * 1, (activePage + 1) * 1)
+                .map(item => (
+                  <div
+                    key={item.id}
+                    className={clsx(
+                      'col-lg-3 col-md-4 col-sm-6 col-12',
+                      styles.fadeWrapper,
+                      styles[this.state.fadeState]
+                    )}
+                  >
+                    <ProductBox {...item} />
+                  </div>
+                ))}
+              {device.isTablet && categoryProducts.slice(activePage * 3, (activePage + 1) * 3)
+                .map(item => (
+                  <div
+                    key={item.id}
+                    className={clsx(
+                      'col-lg-3 col-md-4 col-sm-6 col-12',
+                      styles.fadeWrapper,
+                      styles[this.state.fadeState]
+                    )}
+                  >
+                    <ProductBox {...item} />
+                  </div>
+                ))}
+              {device.isDesktop && categoryProducts.slice(activePage * 8, (activePage + 1) * 8)
                 .map(item => (
                   <div
                     key={item.id}
@@ -156,6 +188,7 @@ NewFurniture.propTypes = {
       newFurniture: PropTypes.bool,
     })
   ),
+  device: PropTypes.bool, 
 };
 
 NewFurniture.defaultProps = {

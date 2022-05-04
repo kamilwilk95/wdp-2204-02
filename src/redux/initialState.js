@@ -512,6 +512,9 @@ const initialState = {
       image: '/images/promoted_baners/baner_indoor_furniture_4.jpg',
     },
   ],
+  device: {
+
+  },
 };
 
 export default initialState;
